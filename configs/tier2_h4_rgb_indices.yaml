@@ -1,0 +1,32 @@
+# Tầng 2 — T2-H4: Indices có hữu ích cả khi không có 13 bands? CLAUDE.md mục 6.
+# RGB + 4 indices → 7 channels. So với T1-R1 (RGB) để đo riêng đóng góp indices
+# (không bị nhiễu bởi bands phổ khác).
+tier: 2
+exp_id: T2-H4
+config_desc: rgb+indices
+input_type: rgb+indices
+
+bands: rgb                              # B04, B03, B02
+indices: [NDVI, NDWI, NDBI, NDMI]       # 4 indices (lưu ý: được tính từ FULL 13-band raw)
+
+seeds: [42]
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "Indices có hữu ích cả khi không kèm 13 bands native?"
+  hypothesis: "Nếu indices đem thông tin thật, chúng cải thiện ngay cả trên nền RGB; nếu cải thiện chỉ xảy ra ở H2 (13band+indices) mà không ở H4, thì lợi ích đến từ tương tác bands ↔ indices, không phải bản thân indices."
+  baseline_ref: "T1-R1 (RGB) seed42 — paired."
+  expected: "Nếu indices hữu ích độc lập: acc & macro-F1 hard tăng. Nếu không: gần baseline RGB."

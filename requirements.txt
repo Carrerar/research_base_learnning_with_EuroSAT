@@ -1,0 +1,25 @@
+# EuroSAT Refine — Python dependencies
+# Versions không pin cứng, để pip tự giải quyết.
+
+# Deep learning
+torch
+torchvision
+torchgeo
+
+# Experiment tracking
+wandb
+
+# ML / metrics
+scikit-learn
+numpy
+
+# Config & utilities
+pyyaml
+tqdm
+
+# Geospatial / raster IO (đọc TIFF 13 bands)
+rasterio
+
+# Visualization
+matplotlib
+seaborn
