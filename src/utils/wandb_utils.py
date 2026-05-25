@@ -29,6 +29,7 @@ TIER_TAGS = {
     1: "tier1-baseline",
     2: "tier2-hypothesis",
     3: "tier3-tuning",
+    4: "research-rq1",
 }
 
 

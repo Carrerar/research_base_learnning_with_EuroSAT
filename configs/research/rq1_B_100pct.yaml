@@ -1,0 +1,38 @@
+# Research RQ1-A — Condition B: ImageNet baseline, 100pct.
+tier: 4
+exp_id: RQ1-B-100
+config_desc: imagenet-13bands-100pct
+input_type: 13bands
+
+bands: all
+indices: []
+
+seeds: [42, 123, 2024]
+
+splits:
+  train: train_100.txt
+  val: val.txt
+  test: test.txt
+  label_fraction: 1.00
+  subset_seed: 42
+  subset_strategy: stratified_nested
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "Condition B full-label baseline có tái tạo winner Refine trong Research config không?"
+  hypothesis: "100% labels phải gần T1-R2 fixed 98.85%; đây là sanity check cho Research pipeline."
+  baseline_ref: "Winner Refine T1-R2 fixed; Research protocol freeze 80/10/10"
+  expected: "test/acc ~98.5-99.1%"

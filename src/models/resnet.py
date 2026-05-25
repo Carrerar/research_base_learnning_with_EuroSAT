@@ -75,6 +75,16 @@ def build_resnet50(
     weights = ResNet50_Weights.IMAGENET1K_V2 if pretrained else None
     model = models.resnet50(weights=weights)
 
+    if pretrained and in_channels == 3 and bands is not None:
+        band_list = list(bands)
+        if band_list != list(RGB_BAND_NAMES):
+            raise ValueError(
+                "pretrained=True + in_channels==3 assumes RGB band order "
+                f"{list(RGB_BAND_NAMES)}. Received bands={band_list}. "
+                "For non-RGB 3-channel inputs, use in_channels != 3 with explicit "
+                "adapter logic or set pretrained=False."
+            )
+
     if in_channels != 3:
         rgb_positions = None
         if pretrained and bands is not None:

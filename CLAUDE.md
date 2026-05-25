@@ -118,8 +118,9 @@ Cách verify (đã thực hiện):
 
 ### Preprocessing
 1. Upsample 20m và 60m bands về 10m bằng bilinear → tensor (13, 64, 64).
-2. Tính 4 indices → tensor (17, 64, 64).
-3. Normalize per-channel với stats tính trên train set, lưu `stats/channel_stats.json`.
+2. **Refine-only:** nếu config yêu cầu indices, tính thêm NDVI/NDWI/NDBI/NDMI → tối đa tensor (17, 64, 64).
+3. **Research default:** dùng **13 bands raw**, KHÔNG concat indices.
+4. Normalize per-channel với stats tính trên TRAIN set tương ứng với input config, lưu `stats/channel_stats.json`.
 
 ### Augmentation
 - Train: random flip H/V, random 90° rotation. KHÔNG color jitter (phá spectral relations).
@@ -249,7 +250,11 @@ Expected outcome: [con số dự kiến]
     "epochs": 50,
     "augmentation": "flip+rotate",
     "seed": seed,
-    "train_split": "80/20-stratified-seed42",
+    "split_protocol": "80/10/10-stratified-seed42",
+    "train_split_file": "train.txt",
+    "val_split_file": "val.txt",
+    "test_split_file": "test.txt",
+    "label_fraction": null,  # Research only: 0.01 / 0.05 / 0.10 / 1.00
 }
 ```
 

@@ -1,0 +1,38 @@
+# Research RQ1-A — Condition B: ImageNet baseline, 1pct.
+tier: 4
+exp_id: RQ1-B-1
+config_desc: imagenet-13bands-1pct
+input_type: 13bands
+
+bands: all
+indices: []
+
+seeds: [42, 123, 2024, 7, 999]
+
+splits:
+  train: train_1.txt
+  val: val.txt
+  test: test.txt
+  label_fraction: 0.01
+  subset_seed: 42
+  subset_strategy: stratified_nested
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "ImageNet-pretrained 13-band ResNet-50 giữ được performance thế nào khi chỉ có 1% labels?"
+  hypothesis: "Performance giảm mạnh ở 1% labels; curve này là baseline supervised để SSL phải vượt."
+  baseline_ref: "Winner Refine T1-R2 fixed; Research protocol freeze 80/10/10"
+  expected: "low-label degradation; report mean±std over 5 seeds"

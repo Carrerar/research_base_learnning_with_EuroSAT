@@ -28,7 +28,7 @@ tqdm
 
 # Geospatial / raster IO (đọc TIFF 13 bands)
 rasterio
-
+tifffile
 # Visualization
 matplotlib
 seaborn

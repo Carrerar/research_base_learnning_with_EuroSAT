@@ -72,17 +72,25 @@ def run_one_seed(cfg, seed, args, channel_stats):
     if spatial_aug: aug_desc += f"+{spatial_aug}"
     if batch_aug: aug_desc += f"+{batch_aug}(a={batch_aug_alpha},p={batch_aug_p})"
 
-    def split_samples(name):
-        s = load_split(f"{args.splits_dir}/{name}.txt")
+    split_cfg = cfg.get("splits", {}) or {}
+    train_split_file = args.train_split or split_cfg.get("train") or "train.txt"
+    val_split_file = args.val_split or split_cfg.get("val") or "val.txt"
+    test_split_file = args.test_split or split_cfg.get("test") or "test.txt"
+    label_fraction = split_cfg.get("label_fraction")
+    subset_seed = split_cfg.get("subset_seed")
+    subset_strategy = split_cfg.get("subset_strategy")
+
+    def split_samples(filename):
+        s = load_split(f"{args.splits_dir}/{filename}")
         return s[: args.limit] if args.limit else s
 
     common = dict(root=args.data_root, bands=bands, indices=indices,
                   norm_mean=norm_mean, norm_std=norm_std,
                   batch_size=batch_size, num_workers=num_workers, seed=seed)
-    train_loader, train_ds = build_loader(split_samples("train"), train=True,
+    train_loader, train_ds = build_loader(split_samples(train_split_file), train=True,
                                           spatial_aug=spatial_aug, **common)
-    val_loader, _ = build_loader(split_samples("val"), train=False, **common)
-    test_loader, _ = build_loader(split_samples("test"), train=False, **common)
+    val_loader, _ = build_loader(split_samples(val_split_file), train=False, **common)
+    test_loader, _ = build_loader(split_samples(test_split_file), train=False, **common)
 
     print(f"[seed {seed}] channels={in_channels} ({train_ds.channel_names}) "
           f"| train={len(train_loader.dataset)} val={len(val_loader.dataset)} "
@@ -104,7 +112,14 @@ def run_one_seed(cfg, seed, args, channel_stats):
             "weight_decay": tr["weight_decay"], "batch_size": batch_size,
             "epochs": epochs, "augmentation": aug_desc,
             "optimizer": tr.get("optimizer", "adamw"),
-            "train_split": "80/10/10-stratified-seed42", "pretrained": pretrained,
+            "split_protocol": "80/10/10-stratified-seed42",
+            "train_split_file": train_split_file,
+            "val_split_file": val_split_file,
+            "test_split_file": test_split_file,
+            "label_fraction": label_fraction,
+            "subset_seed": subset_seed,
+            "subset_strategy": subset_strategy,
+            "pretrained": pretrained,
         },
         question=wb["question"], hypothesis=wb["hypothesis"],
         baseline_ref=wb["baseline_ref"], expected=wb["expected"],
@@ -140,6 +155,9 @@ def main():
     p.add_argument("--seed", type=int, default=None, help="chỉ chạy 1 seed này")
     p.add_argument("--data-root", default="dataset/allbands")
     p.add_argument("--splits-dir", default="dataset/splits")
+    p.add_argument("--train-split", default=None, help="override train split filename, e.g. train_1.txt")
+    p.add_argument("--val-split", default=None, help="override val split filename")
+    p.add_argument("--test-split", default=None, help="override test split filename")
     p.add_argument("--stats", default="stats/channel_stats.json")
     p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     p.add_argument("--wandb-mode", default=None,
