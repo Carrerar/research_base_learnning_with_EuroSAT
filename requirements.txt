@@ -1,7 +1,16 @@
 # EuroSAT Refine — Python dependencies
 # Versions không pin cứng, để pip tự giải quyết.
 
-# Deep learning
+# === ⚠️ QUAN TRỌNG: cài torch CUDA TRƯỚC (Windows + NVIDIA GPU) ===
+# Default PyPI cho torch CPU wheel → training CPU sẽ ~50× chậm hơn GPU.
+# Phải cài torch + torchvision từ PyTorch CUDA index TRƯỚC khi `pip install -r requirements.txt`:
+#
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+#
+# (cu124 = CUDA 12.4 wheel, tương thích NVIDIA driver 525+. Driver cũ hơn dùng cu118.)
+# Kiểm tra sau khi cài:  python -c "import torch; print(torch.cuda.is_available())"
+
+# Deep learning (KHÔNG cài qua dòng này nếu chưa cài từ PyTorch index ở trên)
 torch
 torchvision
 torchgeo

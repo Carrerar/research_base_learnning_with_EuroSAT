@@ -1,0 +1,37 @@
+# Tầng 3 — T3-C variant: 13b raw + flip+rot + MixUp (alpha=0.2).
+# Base = T1-R2 fixed (98.96% seed 42). Alpha=0.2 nhẹ (Zhang 2017 recommend cho fine-grained).
+tier: 3
+exp_id: T3-C-MixUp
+config_desc: 13b-mixup-fixedconv1
+input_type: 13bands
+
+bands: all
+indices: []
+
+seeds: [42]
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+augmentation:
+  spatial: null
+  batch: mixup
+  batch_alpha: 0.2
+  batch_p: 1.0
+
+wandb:
+  question: "MixUp alpha=0.2 có cải thiện trên T1-R2 fixed baseline 98.96% không?"
+  hypothesis: "MixUp linear interpolation 2 ảnh giảm overfitting + smooth decision boundary → Hard F1 vegetation classes có thể tăng (ranh giới fuzzy class hưởng lợi)."
+  baseline_ref: "T1-R2 fixed seed 42 = 98.96% (Hard F1 98.69%, flip+rot only)."
+  expected: "test/acc 98.5-99.4%; Hard F1 cải thiện 0-1.5pp; có thể chạm must-have +1.5pp vs T1-R1."

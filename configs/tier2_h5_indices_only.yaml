@@ -1,0 +1,32 @@
+# Tầng 2 — T2-H5 (exploratory): Chỉ 4 indices, KHÔNG có raw bands.
+# Test discriminative H_A (indices = lossy compression) vs H_B (indices = engineered value độc lập).
+# 1 seed (42) cho exploratory; nếu kết quả bất ngờ sẽ multi-seed.
+tier: 2
+exp_id: T2-H5
+config_desc: indices-only-NDVI_NDWI_NDBI_NDMI
+input_type: indices_only
+
+bands: []                                # KHÔNG dùng raw band
+indices: [NDVI, NDWI, NDBI, NDMI]        # 4 indices = 4 channels
+
+seeds: [42]
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "Chỉ 4 indices (không raw bands) cho acc thế nào? Indices có engineered value độc lập?"
+  hypothesis: "H_A (predict): acc 94-97% (mất info, không ImageNet prior). H_B (alternative): acc ~98% gần T1-R1 RGB nếu indices có engineered value độc lập."
+  baseline_ref: "T1-R1 RGB 98.52%, T1-R2 13b fixed 98.85%, T2-H4 RGB+4idx 98.48%."
+  expected: "test/acc 94-97%. Nếu < 95% → indices alone không khả thi. Nếu 96-98% → indices retain phần lớn discriminative power."

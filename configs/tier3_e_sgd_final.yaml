@@ -1,0 +1,34 @@
+# Tầng 3 — T3-E FINAL: winner T3-D (SGD+Nesterov) chạy 5 seeds.
+# Per CLAUDE.md §6 final pool: 42, 123, 2024, 7, 999.
+# Mục đích: chốt mean ± std cho paper Refine.
+tier: 3
+exp_id: T3-E-sgd-final
+config_desc: 13b-sgd-nesterov-fixedconv1-final
+input_type: 13bands
+
+bands: all
+indices: []
+seeds: [42, 123, 2024, 7, 999]
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  optimizer: sgd
+  sgd_momentum: 0.9
+  sgd_nesterov: true
+  lr: 1.0e-2
+  weight_decay: 5.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "Mean ± std của winner T3-D SGD+Nesterov qua 5 seeds — chốt số liệu paper Refine."
+  hypothesis: "Predict mean acc 99.00% ± 0.20%, Hard F1 98.30% ± 0.25%, gap 1.10pp. Must-have Hard F1 ≥ 98.76% vẫn khó đạt."
+  baseline_ref: "T3-D s42 = 99.07% (Hard F1 98.63%); T1-R2 fixed 3 seeds mean = 98.85% (Hard F1 97.93%)."
+  expected: "test/acc mean 98.9-99.1%, std < 0.3%; Hard F1 mean 98.0-98.5%."

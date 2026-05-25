@@ -39,10 +39,11 @@ if hasattr(sys.stdout, "reconfigure"):
 
 
 def build_loader(samples, *, root, bands, indices, norm_mean, norm_std,
-                 train, batch_size, num_workers, seed):
+                 train, batch_size, num_workers, seed, spatial_aug=None):
     ds = EuroSATDataset(
         root=root, samples=samples, bands=bands, indices=indices,
-        norm_mean=norm_mean, norm_std=norm_std, transform=build_transform(train),
+        norm_mean=norm_mean, norm_std=norm_std,
+        transform=build_transform(train, spatial=spatial_aug),
     )
     return DataLoader(
         ds, batch_size=batch_size, shuffle=train, num_workers=num_workers,
@@ -62,6 +63,15 @@ def run_one_seed(cfg, seed, args, channel_stats):
     epochs = args.epochs or tr["epochs"]
     num_workers = tr["num_workers"] if args.num_workers is None else args.num_workers
 
+    aug_cfg = cfg.get("augmentation") or {}
+    spatial_aug = aug_cfg.get("spatial")
+    batch_aug = aug_cfg.get("batch")
+    batch_aug_alpha = aug_cfg.get("batch_alpha")
+    batch_aug_p = float(aug_cfg.get("batch_p", 1.0))
+    aug_desc = "flip+rot"
+    if spatial_aug: aug_desc += f"+{spatial_aug}"
+    if batch_aug: aug_desc += f"+{batch_aug}(a={batch_aug_alpha},p={batch_aug_p})"
+
     def split_samples(name):
         s = load_split(f"{args.splits_dir}/{name}.txt")
         return s[: args.limit] if args.limit else s
@@ -69,7 +79,8 @@ def run_one_seed(cfg, seed, args, channel_stats):
     common = dict(root=args.data_root, bands=bands, indices=indices,
                   norm_mean=norm_mean, norm_std=norm_std,
                   batch_size=batch_size, num_workers=num_workers, seed=seed)
-    train_loader, train_ds = build_loader(split_samples("train"), train=True, **common)
+    train_loader, train_ds = build_loader(split_samples("train"), train=True,
+                                          spatial_aug=spatial_aug, **common)
     val_loader, _ = build_loader(split_samples("val"), train=False, **common)
     test_loader, _ = build_loader(split_samples("test"), train=False, **common)
 
@@ -80,7 +91,7 @@ def run_one_seed(cfg, seed, args, channel_stats):
     set_seed(seed)
     pretrained = cfg["model"].get("pretrained", True) and not args.no_pretrained
     model = build_resnet50(in_channels=in_channels, num_classes=len(CLASSES),
-                           pretrained=pretrained)
+                           pretrained=pretrained, bands=bands)
 
     wb = cfg["wandb"]
     run = wandb_utils.init_run(
@@ -91,7 +102,8 @@ def run_one_seed(cfg, seed, args, channel_stats):
             "input_type": cfg["input_type"], "indices_used": indices,
             "bands": bands, "optimizer": "adamw", "lr": tr["lr"],
             "weight_decay": tr["weight_decay"], "batch_size": batch_size,
-            "epochs": epochs, "augmentation": "flip+rotate",
+            "epochs": epochs, "augmentation": aug_desc,
+            "optimizer": tr.get("optimizer", "adamw"),
             "train_split": "80/10/10-stratified-seed42", "pretrained": pretrained,
         },
         question=wb["question"], hypothesis=wb["hypothesis"],
@@ -105,6 +117,10 @@ def run_one_seed(cfg, seed, args, channel_stats):
         epochs=epochs, lr=tr["lr"], weight_decay=tr["weight_decay"],
         label_smoothing=tr["label_smoothing"], max_grad_norm=tr["max_grad_norm"],
         patience=tr["patience"], ckpt_path=ckpt,
+        batch_aug=batch_aug, batch_aug_alpha=batch_aug_alpha, batch_aug_p=batch_aug_p,
+        optimizer_name=tr.get("optimizer", "adamw"),
+        sgd_momentum=tr.get("sgd_momentum", 0.9),
+        sgd_nesterov=tr.get("sgd_nesterov", True),
     )
 
     test = evaluate(model, test_loader, args.device)

@@ -17,6 +17,7 @@ Quy ước (mục 7):
 
 from __future__ import annotations
 
+import re
 from typing import Sequence
 
 import wandb
@@ -154,11 +155,12 @@ def log_checkpoint(
     name: str | None = None,
     metadata: dict | None = None,
 ) -> None:
-    """Lưu best checkpoint dưới dạng wandb.Artifact (mục 7)."""
-    art = wandb.Artifact(
-        name=name or f"{run.name}-best",
-        type="model",
-        metadata=metadata or {},
-    )
+    """Lưu best checkpoint dưới dạng wandb.Artifact (mục 7).
+
+    W&B artifact name chỉ cho phép [A-Za-z0-9._-]; thay ký tự khác (vd `+`) bằng `_`.
+    """
+    raw = name or f"{run.name}-best"
+    safe = re.sub(r"[^A-Za-z0-9._-]", "_", raw)
+    art = wandb.Artifact(name=safe, type="model", metadata=metadata or {})
     art.add_file(ckpt_path)
     run.log_artifact(art)

@@ -22,6 +22,7 @@ outputs/
 
 # --- Experiment tracking ---
 wandb/
+logs/
 
 # --- Dataset (nặng, không commit) ---
 # Bỏ qua dataset/ trừ splits/ — split files cần commit để tái lập (seed 42).

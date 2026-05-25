@@ -1,0 +1,30 @@
+# Tầng 3 — T3-A LR sweep: lr 3e-4 (3× baseline 1e-4).
+tier: 3
+exp_id: T3-A-lr3e-4
+config_desc: 13b-lr3e-4-fixedconv1
+input_type: 13bands
+
+bands: all
+indices: []
+seeds: [42]
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  optimizer: adamw
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "LR cao hơn (3e-4) có cải thiện trên baseline 1e-4 (98.96%)?"
+  hypothesis: "LR cao hơn → fine-tune nhanh hơn, có thể đạt minimum tốt hơn nhưng risk overshoot/instability."
+  baseline_ref: "T1-R2 fixed seed 42 = 98.96% (lr=1e-4)."
+  expected: "test/acc 98.5-99.2%; có thể tie baseline hoặc nhỉnh hơn."

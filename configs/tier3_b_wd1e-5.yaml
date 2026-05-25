@@ -1,0 +1,30 @@
+# Tầng 3 — T3-B WD sweep: weight_decay 1e-5 (1/10 baseline 1e-4).
+tier: 3
+exp_id: T3-B-wd1e-5
+config_desc: 13b-wd1e-5-fixedconv1
+input_type: 13bands
+
+bands: all
+indices: []
+seeds: [42]
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  optimizer: adamw
+  lr: 1.0e-4
+  weight_decay: 1.0e-5
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "Weight decay thấp hơn (1e-5) có giúp converge tốt hơn?"
+  hypothesis: "Less regularization → fit training data tốt hơn, có thể overfit nhẹ. Δ marginal."
+  baseline_ref: "T1-R2 fixed seed 42 = 98.96% (wd=1e-4)."
+  expected: "test/acc 98.7-99.1%; có thể nhỉnh hơn baseline nhưng marginal."

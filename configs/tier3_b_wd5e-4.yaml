@@ -1,0 +1,30 @@
+# Tầng 3 — T3-B WD sweep: weight_decay 5e-4 (5× baseline 1e-4).
+tier: 3
+exp_id: T3-B-wd5e-4
+config_desc: 13b-wd5e-4-fixedconv1
+input_type: 13bands
+
+bands: all
+indices: []
+seeds: [42]
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  optimizer: adamw
+  lr: 1.0e-4
+  weight_decay: 5.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "Weight decay cao hơn (5e-4) có giảm overfit và giúp Hard F1?"
+  hypothesis: "More regularization → reduce overfit; có thể giúp 4 lớp Hard (nhạy với overfit) cải thiện."
+  baseline_ref: "T1-R2 fixed seed 42 = 98.96% (wd=1e-4)."
+  expected: "test/acc 98.7-99.2%; Hard F1 có thể tăng 0-0.5pp."

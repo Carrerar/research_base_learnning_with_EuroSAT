@@ -1,0 +1,34 @@
+# Tầng 3 — T3-D Optimizer: SGD + Nesterov momentum (vs AdamW baseline).
+# SGD typical lr cho fine-tune ResNet-50: lr 0.01, momentum 0.9, nesterov, wd 5e-4.
+# So pair "best of each optimizer" (fair comparison; LR khác là tính chất tự nhiên của SGD vs AdamW).
+tier: 3
+exp_id: T3-D-sgd
+config_desc: 13b-sgd-nesterov-fixedconv1
+input_type: 13bands
+
+bands: all
+indices: []
+seeds: [42]
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  optimizer: sgd
+  sgd_momentum: 0.9
+  sgd_nesterov: true
+  lr: 1.0e-2
+  weight_decay: 5.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "SGD+Nesterov (lr=0.01, wd=5e-4) có vượt AdamW baseline (98.96%)?"
+  hypothesis: "SGD đôi khi cho generalization tốt hơn AdamW cho fine-tune; với cosine schedule có thể match hoặc nhỉnh hơn."
+  baseline_ref: "T1-R2 fixed seed 42 (AdamW) = 98.96%."
+  expected: "test/acc 98.5-99.2%; tie hoặc nhỉnh AdamW."

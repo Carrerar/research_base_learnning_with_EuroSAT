@@ -1,0 +1,32 @@
+# T1-R2 với conv1 RGB-prior bug FIX (2026-05-24).
+# config_desc 'fixedconv1' phân biệt với baseline cũ buggy ở W&B dashboard.
+# Seeds: [42] đã chạy (run tgasat2z, 98.96%). [123, 2024] còn pending re-run.
+tier: 1
+exp_id: T1-R2
+config_desc: 13bands-fixedconv1
+input_type: 13bands
+
+bands: all
+indices: []
+
+seeds: [42, 123, 2024]
+
+model:
+  name: resnet50
+  pretrained: true
+
+training:
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  batch_size: 32
+  epochs: 50
+  patience: 10
+  label_smoothing: 0.1
+  max_grad_norm: 1.0
+  num_workers: 4
+
+wandb:
+  question: "Sau fix conv1 RGB-prior (B04/B03/B02 nhận đúng ImageNet R/G/B), T1-R2 có cải thiện so với baseline buggy 98.41% không?"
+  hypothesis: "Fix ảnh hưởng nhỏ (|Δ| < 0.1%) vì ImageNet RGB prior đóng góp marginal khi đã có 13 bands."
+  baseline_ref: "T1-R2 seed 42 (buggy) = 98.41% / macro-F1 98.34%"
+  expected: "test/acc trong [98.3, 98.7]; nếu > 98.7 hoặc < 98.1 = bug significant."

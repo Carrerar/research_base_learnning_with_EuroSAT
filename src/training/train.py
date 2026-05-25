@@ -17,6 +17,7 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 
 from src.training.evaluate import evaluate
+from src.training.mixaug import apply_batch_aug
 from src.utils import wandb_utils
 
 
@@ -35,17 +36,32 @@ def train(
     patience: int = 10,
     use_amp: bool | None = None,
     ckpt_path: str = "outputs/best.pth",
+    batch_aug: str | None = None,
+    batch_aug_alpha: float | None = None,
+    batch_aug_p: float = 1.0,
+    optimizer_name: str = "adamw",
+    sgd_momentum: float = 0.9,
+    sgd_nesterov: bool = True,
 ) -> dict:
     """Train + early stopping. Trả dict: best_val_acc, best_epoch, ckpt_path.
 
     ``run`` là W&B run (hoặc None để bỏ log). Best checkpoint = val accuracy cao nhất.
+    ``batch_aug`` ∈ {None, 'mixup', 'cutmix'}: bật batch-level mixing.
+    ``optimizer_name`` ∈ {'adamw', 'sgd'}: SGD dùng momentum + nesterov.
     """
     device = torch.device(device)
     model.to(device)
     if use_amp is None:
         use_amp = device.type == "cuda"
 
-    optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
+    if optimizer_name == "adamw":
+        optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
+    elif optimizer_name == "sgd":
+        optimizer = torch.optim.SGD(
+            model.parameters(), lr=lr, momentum=sgd_momentum,
+            nesterov=sgd_nesterov, weight_decay=weight_decay)
+    else:
+        raise ValueError(f"optimizer_name không hỗ trợ: {optimizer_name!r}")
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
     criterion = nn.CrossEntropyLoss(label_smoothing=label_smoothing)
     scaler = torch.amp.GradScaler(device.type, enabled=use_amp)
@@ -65,9 +81,15 @@ def train(
             y = y.to(device, non_blocking=True)
             optimizer.zero_grad(set_to_none=True)
 
+            x_in, y_a, y_b, lam = apply_batch_aug(
+                batch_aug, x, y, alpha=batch_aug_alpha, p=batch_aug_p)
+
             with torch.autocast(device_type=device.type, enabled=use_amp):
-                logits = model(x)
-                loss = criterion(logits, y)
+                logits = model(x_in)
+                if lam >= 1.0:
+                    loss = criterion(logits, y_a)
+                else:
+                    loss = lam * criterion(logits, y_a) + (1.0 - lam) * criterion(logits, y_b)
 
             scaler.scale(loss).backward()
             scaler.unscale_(optimizer)
@@ -76,6 +98,7 @@ def train(
             scaler.update()
 
             running_loss += loss.item() * x.size(0)
+            # train accuracy tính trên hard label y (gốc), không phải y mixed — để monitor convergence
             running_correct += (logits.argmax(1) == y).sum().item()
             seen += x.size(0)
 
