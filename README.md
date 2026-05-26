@@ -37,7 +37,7 @@ Train / Val / Test = 21600 / 2700 / 2700
 
 Không chuyển sang literal 10/90 split. Chỉ subsample từ TRAIN để tạo label fractions 1% / 5% / 10% / 100%.
 
-Toàn bộ context, decisions log, protocol freeze và guard rails nằm trong [CLAUDE.md](CLAUDE.md) và [updated.md](updated.md).
+Toàn bộ context, decisions log, protocol freeze và guard rails nằm trong [CLAUDE.md](CLAUDE.md).
 
 ## Cài đặt
 

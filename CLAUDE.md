@@ -107,7 +107,7 @@ Cách verify (đã thực hiện):
 - Dùng **EuroSAT all-bands** (float32, 13 channels), KHÔNG dùng RGB-JPEG version.
 - Split: **80/10/10 stratified** (21600 / 2700 / 2700), cố định bằng seed 42.
 - Lưu split thành files cố định: `splits/train.txt`, `val.txt`, `test.txt`.
-- **Protocol freeze 2026-05-26 (updated.md):** split này dùng XUYÊN SUỐT Refine → Research → Report. KHÔNG regenerate global splits. KHÔNG chuyển sang 10/90 như paper gốc. Research phase chỉ subsample TRAIN — val + test bất biến.
+- **Protocol freeze 2026-05-26:** split này dùng XUYÊN SUỐT Refine → Research → Report. KHÔNG regenerate global splits. KHÔNG chuyển sang 10/90 như paper gốc. Research phase chỉ subsample TRAIN — val + test bất biến.
 
 ### Cấu trúc dataset trên disk
 - `dataset/rgb/` — phiên bản RGB JPEG gốc từ EuroSAT.zip (3 channels, uint8).
@@ -320,7 +320,7 @@ Expected outcome: [con số dự kiến]
 | 2026-05-25 | Tier 3 T3-C aug sweep (RRC/MixUp/CutMix) + T3-A LR + T3-B WD + T3-D optim + T3-E SGD 5-seed final | Không config nào vượt baseline T1-R2 fixed có ý nghĩa thống kê. T3-E SGD 5 seeds = 98.73% (thua AdamW baseline −0.12pp acc, −0.16pp Hard F1). Single-seed sweep gives illusion of winners — T3-D s42 lucky outlier. |
 | 2026-05-25 | **Winner Refine cuối: T1-R2 13b raw + AdamW default recipe** (mean 98.85% ± 0.24%, Hard F1 97.93%) | Simplest config + best Hard F1 + best stability. Sẽ là baseline ImageNet-pretrained (condition B) cho Research phase RQ1. |
 | 2026-05-25 | **Must-have Hard F1 +1.5pp vs T1-R1 KHÔNG đạt** (best 97.93% vs target 98.76%, gap −0.83pp) | Toàn bộ input engineering (indices) + aug (MixUp/CutMix/RRC) + LR/WD/optim sweeps đều không break được gap Hard-Easy. Gap còn lại nhiều khả năng do label noise giữa vegetation classes + 64×64 resolution limit. Negative finding đáng publish. |
-| 2026-05-26 | **Protocol freeze Research phase (updated.md):** giữ NGUYÊN split 80/10/10 seed 42; KHÔNG chuyển sang 10/90; chỉ subsample TRAIN cho low-label; val + test bất biến mọi experiment | Modern SSL evaluation không đổi global split (val proper, test fair). 10/90 paper gốc outdated — insufficient validation separation, overly large test, khó so sánh fair giữa methods. Câu hỏi Research là "cần bao nhiêu label?" KHÔNG phải "chia dataset thế nào?". |
+| 2026-05-26 | **Protocol freeze Research phase:** giữ NGUYÊN split 80/10/10 seed 42; KHÔNG chuyển sang 10/90; chỉ subsample TRAIN cho low-label; val + test bất biến mọi experiment | Modern SSL evaluation không đổi global split (val proper, test fair). 10/90 paper gốc outdated — insufficient validation separation, overly large test, khó so sánh fair giữa methods. Câu hỏi Research là "cần bao nhiêu label?" KHÔNG phải "chia dataset thế nào?". |
 | 2026-05-26 | **Chia RQ1 thành RQ1-A (core, bắt buộc) + RQ1-B (optional)** | RQ1-A giữ ResNet-50 backbone giống Refine để isolate "representation learning effect"; SSL methods: SimCLR / MoCo-v2 / BYOL (contrastive, dễ compare, low engineering complexity). Nếu nhảy thẳng MAE → đổi đồng thời backbone (ResNet→ViT) + objective + tokenization → không attribute được gain cho SSL hay architecture. MAE/SatMAE/ViT moved sang RQ1-B optional sau khi RQ1-A xong. |
 | 2026-05-26 | **4 bước trước SSL nặng:** (1) Protocol freeze (2) Condition B low-label baseline curve (3) Verify stability (4) Tiny SSL pilot | Tránh launch full 100-200 epoch SSL trước khi verify pipeline; phải có "supervised degradation curve" của ImageNet baseline để biết ngưỡng SSL cần vượt; tiny SSL pilot verify loss giảm + embeddings non-trivial trước khi commit compute lớn. |
 | 2026-05-26 | **Triết lý project chuyển dịch: "benchmark optimization" → "representation learning analysis"** | Mục tiêu mới = hiểu data efficiency + representation quality + transfer behavior; KHÔNG còn chạy theo +0.1pp ở 100%. Khoảng cách giữa 3 condition (A/B/C) ở 1-10% label là tâm điểm. |
@@ -329,7 +329,7 @@ Expected outcome: [con số dự kiến]
 
 ## 11. Hướng Research (giai đoạn tiếp theo) — **RQ1 chia 2 sub-phase: RQ1-A (core) + RQ1-B (optional)**
 
-> **Protocol freeze 2026-05-26** (xem `updated.md` cho bản đầy đủ). Research giữ NGUYÊN split 80/10/10 (21600/2700/2700) seed 42 từ Refine. KHÔNG chuyển sang 10/90 như paper gốc. Chỉ subsample TRAIN cho low-label regime — val + test BẤT BIẾN mọi experiment.
+> **Protocol freeze 2026-05-26.** Research giữ NGUYÊN split 80/10/10 (21600/2700/2700) seed 42 từ Refine. KHÔNG chuyển sang 10/90 như paper gốc. Chỉ subsample TRAIN cho low-label regime — val + test BẤT BIẾN mọi experiment. Đây là bản canonical của protocol freeze và thay thế decision log tạm trước đây.
 
 ### RQ1 — Câu hỏi nghiên cứu
 
@@ -403,7 +403,7 @@ Project chuyển từ **"benchmark optimization"** sang **"representation learni
 - +0.1pp ở 100% không còn quan trọng; **khoảng cách giữa (A)/(B)/(C) ở 1-10% label** là tâm điểm
 - Main evaluation focus: low-label regime (1% / 5% / 10%), KHÔNG phải squeeze gain ở 100%
 
-### Guard rails Research phase (theo updated.md §Final Guidance)
+### Guard rails Research phase
 
 1. **NEVER** regenerate global dataset splits
 2. **NEVER** switch to literal 10/90 train/test evaluation

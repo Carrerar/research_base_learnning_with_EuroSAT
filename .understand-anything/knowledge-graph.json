@@ -1,0 +1,3136 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "EuroSAT Refine Research",
+    "languages": [
+      "ipynb",
+      "json",
+      "markdown",
+      "python",
+      "txt",
+      "unknown",
+      "yaml"
+    ],
+    "frameworks": [
+      "PyTorch",
+      "TorchGeo",
+      "Weights & Biases",
+      "scikit-learn",
+      "PyYAML",
+      "Rasterio"
+    ],
+    "description": "Research-based learning project for EuroSAT Sentinel-2 land-cover classification. It reproduces and refines supervised baselines across RGB, 13-band, spectral-index, augmentation, optimizer, and low-label experiment conditions using PyTorch/TorchGeo training pipelines and YAML run configs.",
+    "analyzedAt": "2026-05-26T07:49:38.803Z",
+    "gitCommitHash": "c0b8812efc5fae90886c56b1beca1d41af56cb92"
+  },
+  "nodes": [
+    {
+      "id": "file:src/training/evaluate.py",
+      "type": "file",
+      "name": "evaluate.py",
+      "filePath": "src/training/evaluate.py",
+      "summary": "Evaluates a model over a data loader and reports loss, accuracy, predictions, labels, and class-level metrics.",
+      "tags": [
+        "training-loop",
+        "evaluation",
+        "optimization"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/training/evaluate.py:evaluate",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/training/evaluate.py",
+      "summary": "Implements evaluate in src/training/evaluate.py.",
+      "tags": [
+        "function",
+        "logic",
+        "evaluation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/training/mixaug.py",
+      "type": "file",
+      "name": "mixaug.py",
+      "filePath": "src/training/mixaug.py",
+      "summary": "Provides MixUp and CutMix batch augmentation helpers used by the training loop.",
+      "tags": [
+        "training-loop",
+        "evaluation",
+        "optimization"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/training/mixaug.py:mixup_batch",
+      "type": "function",
+      "name": "mixup_batch",
+      "filePath": "src/training/mixaug.py",
+      "summary": "Implements mixup_batch in src/training/mixaug.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/training/mixaug.py:cutmix_batch",
+      "type": "function",
+      "name": "cutmix_batch",
+      "filePath": "src/training/mixaug.py",
+      "summary": "Implements cutmix_batch in src/training/mixaug.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/training/mixaug.py:_sample_beta",
+      "type": "function",
+      "name": "_sample_beta",
+      "filePath": "src/training/mixaug.py",
+      "summary": "Implements _sample_beta in src/training/mixaug.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/training/mixaug.py:apply_batch_aug",
+      "type": "function",
+      "name": "apply_batch_aug",
+      "filePath": "src/training/mixaug.py",
+      "summary": "Implements apply_batch_aug in src/training/mixaug.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/training/train.py",
+      "type": "file",
+      "name": "train.py",
+      "filePath": "src/training/train.py",
+      "summary": "Runs the epoch-level training loop with optimizer steps, optional mixed augmentations, validation, checkpointing, scheduler updates, and W&B logging.",
+      "tags": [
+        "training-loop",
+        "evaluation",
+        "optimization"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/training/train.py:train",
+      "type": "function",
+      "name": "train",
+      "filePath": "src/training/train.py",
+      "summary": "Implements train in src/training/train.py.",
+      "tags": [
+        "function",
+        "logic",
+        "training-loop"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/utils/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/utils/__init__.py",
+      "summary": "__init__.py is part of the EuroSAT research codebase.",
+      "tags": [
+        "utility",
+        "configuration",
+        "reproducibility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "file:src/utils/wandb_utils.py",
+      "type": "file",
+      "name": "wandb_utils.py",
+      "filePath": "src/utils/wandb_utils.py",
+      "summary": "Builds W&B run metadata and logs epoch metrics, test results, and checkpoint artifacts.",
+      "tags": [
+        "utility",
+        "configuration",
+        "reproducibility"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/utils/wandb_utils.py:make_run_name",
+      "type": "function",
+      "name": "make_run_name",
+      "filePath": "src/utils/wandb_utils.py",
+      "summary": "Implements make_run_name in src/utils/wandb_utils.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/wandb_utils.py:make_notes",
+      "type": "function",
+      "name": "make_notes",
+      "filePath": "src/utils/wandb_utils.py",
+      "summary": "Implements make_notes in src/utils/wandb_utils.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/wandb_utils.py:init_run",
+      "type": "function",
+      "name": "init_run",
+      "filePath": "src/utils/wandb_utils.py",
+      "summary": "Implements init_run in src/utils/wandb_utils.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/wandb_utils.py:log_epoch",
+      "type": "function",
+      "name": "log_epoch",
+      "filePath": "src/utils/wandb_utils.py",
+      "summary": "Implements log_epoch in src/utils/wandb_utils.py.",
+      "tags": [
+        "function",
+        "logic",
+        "experiment-tracking"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/wandb_utils.py:log_test_results",
+      "type": "function",
+      "name": "log_test_results",
+      "filePath": "src/utils/wandb_utils.py",
+      "summary": "Implements log_test_results in src/utils/wandb_utils.py.",
+      "tags": [
+        "function",
+        "logic",
+        "experiment-tracking"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/wandb_utils.py:log_checkpoint",
+      "type": "function",
+      "name": "log_checkpoint",
+      "filePath": "src/utils/wandb_utils.py",
+      "summary": "Implements log_checkpoint in src/utils/wandb_utils.py.",
+      "tags": [
+        "function",
+        "logic",
+        "experiment-tracking"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/train.py",
+      "type": "file",
+      "name": "train.py",
+      "filePath": "scripts/train.py",
+      "summary": "CLI entry point that loads an experiment config, builds datasets and model components, and runs one or more supervised EuroSAT training seeds.",
+      "tags": [
+        "entry-point",
+        "experiment-runner",
+        "cli"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:scripts/train.py:build_loader",
+      "type": "function",
+      "name": "build_loader",
+      "filePath": "scripts/train.py",
+      "summary": "Implements build_loader in scripts/train.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/train.py:run_one_seed",
+      "type": "function",
+      "name": "run_one_seed",
+      "filePath": "scripts/train.py",
+      "summary": "Implements run_one_seed in scripts/train.py.",
+      "tags": [
+        "function",
+        "logic",
+        "reproducibility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/train.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/train.py",
+      "summary": "Implements main in scripts/train.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/data/transforms.py",
+      "type": "file",
+      "name": "transforms.py",
+      "filePath": "src/data/transforms.py",
+      "summary": "Defines geometric augmentation and transform composition for EuroSAT tensors, including random resized crops and train/eval preprocessing.",
+      "tags": [
+        "data-pipeline",
+        "preprocessing",
+        "dataset"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/data/transforms.py:build_transform",
+      "type": "function",
+      "name": "build_transform",
+      "filePath": "src/data/transforms.py",
+      "summary": "Implements build_transform in src/data/transforms.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/data/transforms.py:GeometricAugment",
+      "type": "class",
+      "name": "GeometricAugment",
+      "filePath": "src/data/transforms.py",
+      "summary": "Defines GeometricAugment in src/data/transforms.py.",
+      "tags": [
+        "class",
+        "structure",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/data/transforms.py:RandomResizedCrop",
+      "type": "class",
+      "name": "RandomResizedCrop",
+      "filePath": "src/data/transforms.py",
+      "summary": "Defines RandomResizedCrop in src/data/transforms.py.",
+      "tags": [
+        "class",
+        "structure",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/data/transforms.py:Compose",
+      "type": "class",
+      "name": "Compose",
+      "filePath": "src/data/transforms.py",
+      "summary": "Defines Compose in src/data/transforms.py.",
+      "tags": [
+        "class",
+        "structure",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/models/resnet.py",
+      "type": "file",
+      "name": "resnet.py",
+      "filePath": "src/models/resnet.py",
+      "summary": "Builds a ResNet-50 classifier and adapts the first convolution for RGB, 13-band, or spectral-index channel layouts.",
+      "tags": [
+        "model",
+        "resnet",
+        "architecture"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/models/resnet.py:_adapt_conv1",
+      "type": "function",
+      "name": "_adapt_conv1",
+      "filePath": "src/models/resnet.py",
+      "summary": "Implements _adapt_conv1 in src/models/resnet.py.",
+      "tags": [
+        "function",
+        "logic",
+        "model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/models/resnet.py:build_resnet50",
+      "type": "function",
+      "name": "build_resnet50",
+      "filePath": "src/models/resnet.py",
+      "summary": "Implements build_resnet50 in src/models/resnet.py.",
+      "tags": [
+        "function",
+        "logic",
+        "model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/utils/seed.py",
+      "type": "file",
+      "name": "seed.py",
+      "filePath": "src/utils/seed.py",
+      "summary": "Centralizes deterministic seeding for Python, NumPy, PyTorch, CUDA workers, and data loader generators.",
+      "tags": [
+        "utility",
+        "configuration",
+        "reproducibility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/utils/seed.py:set_seed",
+      "type": "function",
+      "name": "set_seed",
+      "filePath": "src/utils/seed.py",
+      "summary": "Implements set_seed in src/utils/seed.py.",
+      "tags": [
+        "function",
+        "logic",
+        "reproducibility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/seed.py:seed_worker",
+      "type": "function",
+      "name": "seed_worker",
+      "filePath": "src/utils/seed.py",
+      "summary": "Implements seed_worker in src/utils/seed.py.",
+      "tags": [
+        "function",
+        "logic",
+        "reproducibility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/seed.py:make_generator",
+      "type": "function",
+      "name": "make_generator",
+      "filePath": "src/utils/seed.py",
+      "summary": "Implements make_generator in src/utils/seed.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/data/compute_stats.py",
+      "type": "file",
+      "name": "compute_stats.py",
+      "filePath": "src/data/compute_stats.py",
+      "summary": "compute_stats.py contains 2 functions for the EuroSAT research codebase.",
+      "tags": [
+        "data-pipeline",
+        "preprocessing",
+        "dataset"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/data/compute_stats.py:compute_stats",
+      "type": "function",
+      "name": "compute_stats",
+      "filePath": "src/data/compute_stats.py",
+      "summary": "Implements compute_stats in src/data/compute_stats.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/data/compute_stats.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/data/compute_stats.py",
+      "summary": "Implements main in src/data/compute_stats.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/data/create_splits.py",
+      "type": "file",
+      "name": "create_splits.py",
+      "filePath": "src/data/create_splits.py",
+      "summary": "create_splits.py contains 4 functions for the EuroSAT research codebase.",
+      "tags": [
+        "data-pipeline",
+        "preprocessing",
+        "dataset"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/data/create_splits.py:gather_samples",
+      "type": "function",
+      "name": "gather_samples",
+      "filePath": "src/data/create_splits.py",
+      "summary": "Implements gather_samples in src/data/create_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/data/create_splits.py:make_splits",
+      "type": "function",
+      "name": "make_splits",
+      "filePath": "src/data/create_splits.py",
+      "summary": "Implements make_splits in src/data/create_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-splits"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/data/create_splits.py:write_split",
+      "type": "function",
+      "name": "write_split",
+      "filePath": "src/data/create_splits.py",
+      "summary": "Implements write_split in src/data/create_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-splits"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/data/create_splits.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/data/create_splits.py",
+      "summary": "Implements main in src/data/create_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/data/eurosat_dataset.py",
+      "type": "file",
+      "name": "eurosat_dataset.py",
+      "filePath": "src/data/eurosat_dataset.py",
+      "summary": "Implements the EuroSAT dataset loader, Sentinel-2 band reading, spectral index computation, split loading, and channel-stat vector preparation.",
+      "tags": [
+        "data-pipeline",
+        "preprocessing",
+        "dataset"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/data/eurosat_dataset.py:read_patch",
+      "type": "function",
+      "name": "read_patch",
+      "filePath": "src/data/eurosat_dataset.py",
+      "summary": "Implements read_patch in src/data/eurosat_dataset.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/data/eurosat_dataset.py:compute_indices",
+      "type": "function",
+      "name": "compute_indices",
+      "filePath": "src/data/eurosat_dataset.py",
+      "summary": "Implements compute_indices in src/data/eurosat_dataset.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/data/eurosat_dataset.py:load_split",
+      "type": "function",
+      "name": "load_split",
+      "filePath": "src/data/eurosat_dataset.py",
+      "summary": "Implements load_split in src/data/eurosat_dataset.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-splits"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/data/eurosat_dataset.py:stats_to_channel_vectors",
+      "type": "function",
+      "name": "stats_to_channel_vectors",
+      "filePath": "src/data/eurosat_dataset.py",
+      "summary": "Implements stats_to_channel_vectors in src/data/eurosat_dataset.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/data/eurosat_dataset.py:EuroSATDataset",
+      "type": "class",
+      "name": "EuroSATDataset",
+      "filePath": "src/data/eurosat_dataset.py",
+      "summary": "Defines EuroSATDataset in src/data/eurosat_dataset.py.",
+      "tags": [
+        "class",
+        "structure",
+        "data-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/utils/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "src/utils/config.py",
+      "summary": "Loads YAML experiment configuration and resolves requested Sentinel-2 band groups into concrete channel lists.",
+      "tags": [
+        "utility",
+        "configuration",
+        "reproducibility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:src/utils/config.py:load_config",
+      "type": "function",
+      "name": "load_config",
+      "filePath": "src/utils/config.py",
+      "summary": "Implements load_config in src/utils/config.py.",
+      "tags": [
+        "function",
+        "logic",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/config.py:resolve_bands",
+      "type": "function",
+      "name": "resolve_bands",
+      "filePath": "src/utils/config.py",
+      "summary": "Implements resolve_bands in src/utils/config.py.",
+      "tags": [
+        "function",
+        "logic",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Long-form project memory containing protocol decisions, experiment guardrails, implementation notes, and research-phase context.",
+      "tags": [
+        "documentation",
+        "research-context",
+        "protocol"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Project overview documenting the EuroSAT reproduce-refine-research workflow, current conclusions, setup, structure, and low-label experiment commands.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "requirements.txt",
+      "summary": "Python dependency list for the EuroSAT training and analysis environment, including PyTorch, TorchGeo, W&B, raster IO, and visualization packages.",
+      "tags": [
+        "documentation",
+        "dependencies",
+        "environment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/research/rq1_B_100pct.yaml",
+      "type": "config",
+      "name": "rq1_B_100pct.yaml",
+      "filePath": "configs/research/rq1_B_100pct.yaml",
+      "summary": "Low-label research experiment configuration for rq1_B_100pct.yaml, consumed by the training CLI.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/research/rq1_B_10pct.yaml",
+      "type": "config",
+      "name": "rq1_B_10pct.yaml",
+      "filePath": "configs/research/rq1_B_10pct.yaml",
+      "summary": "Low-label research experiment configuration for rq1_B_10pct.yaml, consumed by the training CLI.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/research/rq1_B_1pct.yaml",
+      "type": "config",
+      "name": "rq1_B_1pct.yaml",
+      "filePath": "configs/research/rq1_B_1pct.yaml",
+      "summary": "Low-label research experiment configuration for rq1_B_1pct.yaml, consumed by the training CLI.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/research/rq1_B_5pct.yaml",
+      "type": "config",
+      "name": "rq1_B_5pct.yaml",
+      "filePath": "configs/research/rq1_B_5pct.yaml",
+      "summary": "Low-label research experiment configuration for rq1_B_5pct.yaml, consumed by the training CLI.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier1_13bands.yaml",
+      "type": "config",
+      "name": "tier1_13bands.yaml",
+      "filePath": "configs/tier1_13bands.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier1_13bands.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier1_13bands_fixedconv1.yaml",
+      "type": "config",
+      "name": "tier1_13bands_fixedconv1.yaml",
+      "filePath": "configs/tier1_13bands_fixedconv1.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier1_13bands_fixedconv1.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier1_rgb.yaml",
+      "type": "config",
+      "name": "tier1_rgb.yaml",
+      "filePath": "configs/tier1_rgb.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier1_rgb.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h2_13bands_indices.yaml",
+      "type": "config",
+      "name": "tier2_h2_13bands_indices.yaml",
+      "filePath": "configs/tier2_h2_13bands_indices.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h2_13bands_indices.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h2_13bands_indices_fixedconv1.yaml",
+      "type": "config",
+      "name": "tier2_h2_13bands_indices_fixedconv1.yaml",
+      "filePath": "configs/tier2_h2_13bands_indices_fixedconv1.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h2_13bands_indices_fixedconv1.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h3a_13bands_ndvi.yaml",
+      "type": "config",
+      "name": "tier2_h3a_13bands_ndvi.yaml",
+      "filePath": "configs/tier2_h3a_13bands_ndvi.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h3a_13bands_ndvi.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h3a_13bands_ndvi_fixedconv1.yaml",
+      "type": "config",
+      "name": "tier2_h3a_13bands_ndvi_fixedconv1.yaml",
+      "filePath": "configs/tier2_h3a_13bands_ndvi_fixedconv1.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h3a_13bands_ndvi_fixedconv1.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h3b_13bands_ndwi.yaml",
+      "type": "config",
+      "name": "tier2_h3b_13bands_ndwi.yaml",
+      "filePath": "configs/tier2_h3b_13bands_ndwi.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h3b_13bands_ndwi.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h3b_13bands_ndwi_fixedconv1.yaml",
+      "type": "config",
+      "name": "tier2_h3b_13bands_ndwi_fixedconv1.yaml",
+      "filePath": "configs/tier2_h3b_13bands_ndwi_fixedconv1.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h3b_13bands_ndwi_fixedconv1.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h3c_13bands_ndbi.yaml",
+      "type": "config",
+      "name": "tier2_h3c_13bands_ndbi.yaml",
+      "filePath": "configs/tier2_h3c_13bands_ndbi.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h3c_13bands_ndbi.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h3c_13bands_ndbi_fixedconv1.yaml",
+      "type": "config",
+      "name": "tier2_h3c_13bands_ndbi_fixedconv1.yaml",
+      "filePath": "configs/tier2_h3c_13bands_ndbi_fixedconv1.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h3c_13bands_ndbi_fixedconv1.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h3d_13bands_ndmi.yaml",
+      "type": "config",
+      "name": "tier2_h3d_13bands_ndmi.yaml",
+      "filePath": "configs/tier2_h3d_13bands_ndmi.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h3d_13bands_ndmi.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h3d_13bands_ndmi_fixedconv1.yaml",
+      "type": "config",
+      "name": "tier2_h3d_13bands_ndmi_fixedconv1.yaml",
+      "filePath": "configs/tier2_h3d_13bands_ndmi_fixedconv1.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h3d_13bands_ndmi_fixedconv1.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h4_rgb_indices.yaml",
+      "type": "config",
+      "name": "tier2_h4_rgb_indices.yaml",
+      "filePath": "configs/tier2_h4_rgb_indices.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h4_rgb_indices.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h5_indices_only.yaml",
+      "type": "config",
+      "name": "tier2_h5_indices_only.yaml",
+      "filePath": "configs/tier2_h5_indices_only.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h5_indices_only.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h5a_10m.yaml",
+      "type": "config",
+      "name": "tier2_h5a_10m.yaml",
+      "filePath": "configs/tier2_h5a_10m.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h5a_10m.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h5b_10m_20m.yaml",
+      "type": "config",
+      "name": "tier2_h5b_10m_20m.yaml",
+      "filePath": "configs/tier2_h5b_10m_20m.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h5b_10m_20m.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier2_h5c_10m_atmospheric.yaml",
+      "type": "config",
+      "name": "tier2_h5c_10m_atmospheric.yaml",
+      "filePath": "configs/tier2_h5c_10m_atmospheric.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier2_h5c_10m_atmospheric.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_a_lr1e-3.yaml",
+      "type": "config",
+      "name": "tier3_a_lr1e-3.yaml",
+      "filePath": "configs/tier3_a_lr1e-3.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_a_lr1e-3.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_a_lr3e-4.yaml",
+      "type": "config",
+      "name": "tier3_a_lr3e-4.yaml",
+      "filePath": "configs/tier3_a_lr3e-4.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_a_lr3e-4.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_a_lr3e-5.yaml",
+      "type": "config",
+      "name": "tier3_a_lr3e-5.yaml",
+      "filePath": "configs/tier3_a_lr3e-5.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_a_lr3e-5.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_b_wd1e-5.yaml",
+      "type": "config",
+      "name": "tier3_b_wd1e-5.yaml",
+      "filePath": "configs/tier3_b_wd1e-5.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_b_wd1e-5.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_b_wd5e-4.yaml",
+      "type": "config",
+      "name": "tier3_b_wd5e-4.yaml",
+      "filePath": "configs/tier3_b_wd5e-4.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_b_wd5e-4.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_c_cutmix.yaml",
+      "type": "config",
+      "name": "tier3_c_cutmix.yaml",
+      "filePath": "configs/tier3_c_cutmix.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_c_cutmix.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_c_mixup.yaml",
+      "type": "config",
+      "name": "tier3_c_mixup.yaml",
+      "filePath": "configs/tier3_c_mixup.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_c_mixup.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_c_rrc.yaml",
+      "type": "config",
+      "name": "tier3_c_rrc.yaml",
+      "filePath": "configs/tier3_c_rrc.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_c_rrc.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_d_sgd.yaml",
+      "type": "config",
+      "name": "tier3_d_sgd.yaml",
+      "filePath": "configs/tier3_d_sgd.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_d_sgd.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/tier3_e_sgd_final.yaml",
+      "type": "config",
+      "name": "tier3_e_sgd_final.yaml",
+      "filePath": "configs/tier3_e_sgd_final.yaml",
+      "summary": "Supervised EuroSAT training configuration for tier3_e_sgd_final.yaml, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "configuration",
+        "experiment-config",
+        "training-recipe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:dataset/splits/label_fraction_metadata.json",
+      "type": "config",
+      "name": "label_fraction_metadata.json",
+      "filePath": "dataset/splits/label_fraction_metadata.json",
+      "summary": "Tracked dataset split artifact label_fraction_metadata.json used to reproduce EuroSAT train, validation, test, or label-fraction subsets.",
+      "tags": [
+        "configuration",
+        "data-splits",
+        "reproducibility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:dataset/splits/test.txt",
+      "type": "document",
+      "name": "test.txt",
+      "filePath": "dataset/splits/test.txt",
+      "summary": "Tracked dataset split artifact test.txt used to reproduce EuroSAT train, validation, test, or label-fraction subsets.",
+      "tags": [
+        "documentation",
+        "data-splits",
+        "reproducibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:dataset/splits/train.txt",
+      "type": "document",
+      "name": "train.txt",
+      "filePath": "dataset/splits/train.txt",
+      "summary": "Tracked dataset split artifact train.txt used to reproduce EuroSAT train, validation, test, or label-fraction subsets.",
+      "tags": [
+        "documentation",
+        "data-splits",
+        "reproducibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:dataset/splits/train_1.txt",
+      "type": "document",
+      "name": "train_1.txt",
+      "filePath": "dataset/splits/train_1.txt",
+      "summary": "Tracked dataset split artifact train_1.txt used to reproduce EuroSAT train, validation, test, or label-fraction subsets.",
+      "tags": [
+        "documentation",
+        "data-splits",
+        "reproducibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:dataset/splits/train_10.txt",
+      "type": "document",
+      "name": "train_10.txt",
+      "filePath": "dataset/splits/train_10.txt",
+      "summary": "Tracked dataset split artifact train_10.txt used to reproduce EuroSAT train, validation, test, or label-fraction subsets.",
+      "tags": [
+        "documentation",
+        "data-splits",
+        "reproducibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:dataset/splits/train_100.txt",
+      "type": "document",
+      "name": "train_100.txt",
+      "filePath": "dataset/splits/train_100.txt",
+      "summary": "Tracked dataset split artifact train_100.txt used to reproduce EuroSAT train, validation, test, or label-fraction subsets.",
+      "tags": [
+        "documentation",
+        "data-splits",
+        "reproducibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:dataset/splits/train_5.txt",
+      "type": "document",
+      "name": "train_5.txt",
+      "filePath": "dataset/splits/train_5.txt",
+      "summary": "Tracked dataset split artifact train_5.txt used to reproduce EuroSAT train, validation, test, or label-fraction subsets.",
+      "tags": [
+        "documentation",
+        "data-splits",
+        "reproducibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:dataset/splits/val.txt",
+      "type": "document",
+      "name": "val.txt",
+      "filePath": "dataset/splits/val.txt",
+      "summary": "Tracked dataset split artifact val.txt used to reproduce EuroSAT train, validation, test, or label-fraction subsets.",
+      "tags": [
+        "documentation",
+        "data-splits",
+        "reproducibility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:paper/paper_analysis.md",
+      "type": "document",
+      "name": "paper_analysis.md",
+      "filePath": "paper/paper_analysis.md",
+      "summary": "Research paper artifact covering EuroSAT experiment analysis, presentation material, or result tables for paper_analysis.md.",
+      "tags": [
+        "documentation",
+        "research-report",
+        "results"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:paper/presentation.md",
+      "type": "document",
+      "name": "presentation.md",
+      "filePath": "paper/presentation.md",
+      "summary": "Research paper artifact covering EuroSAT experiment analysis, presentation material, or result tables for presentation.md.",
+      "tags": [
+        "documentation",
+        "research-report",
+        "results"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:paper/results_table.md",
+      "type": "document",
+      "name": "results_table.md",
+      "filePath": "paper/results_table.md",
+      "summary": "Research paper artifact covering EuroSAT experiment analysis, presentation material, or result tables for results_table.md.",
+      "tags": [
+        "documentation",
+        "research-report",
+        "results"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:configs/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "configs/.gitkeep",
+      "summary": "Supervised EuroSAT training configuration for .gitkeep, defining bands, optimizer, augmentation, and recipe settings.",
+      "tags": [
+        "placeholder",
+        "repository-structure",
+        "empty-directory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dataset/splits/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "dataset/splits/.gitkeep",
+      "summary": "Tracked dataset split artifact .gitkeep used to reproduce EuroSAT train, validation, test, or label-fraction subsets.",
+      "tags": [
+        "placeholder",
+        "repository-structure",
+        "empty-directory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:notebooks/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "notebooks/.gitkeep",
+      "summary": "Notebook used for EuroSAT loader verification, band inspection, or visualization workflows.",
+      "tags": [
+        "notebook",
+        "visualization",
+        "exploration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:notebooks/verify_allbands_loader.ipynb",
+      "type": "file",
+      "name": "verify_allbands_loader.ipynb",
+      "filePath": "notebooks/verify_allbands_loader.ipynb",
+      "summary": "Notebook used for EuroSAT loader verification, band inspection, or visualization workflows.",
+      "tags": [
+        "notebook",
+        "visualization",
+        "exploration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:notebooks/visualize_bands_indices.ipynb",
+      "type": "file",
+      "name": "visualize_bands_indices.ipynb",
+      "filePath": "notebooks/visualize_bands_indices.ipynb",
+      "summary": "Notebook used for EuroSAT loader verification, band inspection, or visualization workflows.",
+      "tags": [
+        "notebook",
+        "visualization",
+        "exploration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "scripts/__init__.py",
+      "summary": "__init__.py is part of the EuroSAT research codebase.",
+      "tags": [
+        "entry-point",
+        "experiment-runner",
+        "cli"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "file:scripts/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "scripts/.gitkeep",
+      "summary": "Placeholder file that keeps an otherwise empty project directory under version control.",
+      "tags": [
+        "entry-point",
+        "experiment-runner",
+        "cli"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/create_label_fraction_splits.py",
+      "type": "file",
+      "name": "create_label_fraction_splits.py",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Creates deterministic nested low-label training splits from the full EuroSAT train split for 1%, 5%, 10%, and 100% label-fraction experiments.",
+      "tags": [
+        "entry-point",
+        "experiment-runner",
+        "cli"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "function:scripts/create_label_fraction_splits.py:read_split",
+      "type": "function",
+      "name": "read_split",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Implements read_split in scripts/create_label_fraction_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-splits"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/create_label_fraction_splits.py:sha256_file",
+      "type": "function",
+      "name": "sha256_file",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Implements sha256_file in scripts/create_label_fraction_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/create_label_fraction_splits.py:group_by_label",
+      "type": "function",
+      "name": "group_by_label",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Implements group_by_label in scripts/create_label_fraction_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/create_label_fraction_splits.py:nested_subsets",
+      "type": "function",
+      "name": "nested_subsets",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Implements nested_subsets in scripts/create_label_fraction_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/create_label_fraction_splits.py:assert_nested",
+      "type": "function",
+      "name": "assert_nested",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Implements assert_nested in scripts/create_label_fraction_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/create_label_fraction_splits.py:write_split",
+      "type": "function",
+      "name": "write_split",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Implements write_split in scripts/create_label_fraction_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "data-splits"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/create_label_fraction_splits.py:class_counts",
+      "type": "function",
+      "name": "class_counts",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Implements class_counts in scripts/create_label_fraction_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/create_label_fraction_splits.py:parse_fractions",
+      "type": "function",
+      "name": "parse_fractions",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Implements parse_fractions in scripts/create_label_fraction_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/create_label_fraction_splits.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "summary": "Implements main in scripts/create_label_fraction_splits.py.",
+      "tags": [
+        "function",
+        "logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/__init__.py",
+      "summary": "__init__.py is part of the EuroSAT research codebase.",
+      "tags": [
+        "entry-point",
+        "package",
+        "barrel"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "file:src/data/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/data/__init__.py",
+      "summary": "__init__.py is part of the EuroSAT research codebase.",
+      "tags": [
+        "data-pipeline",
+        "preprocessing",
+        "dataset"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "file:src/models/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/models/__init__.py",
+      "summary": "__init__.py is part of the EuroSAT research codebase.",
+      "tags": [
+        "model",
+        "resnet",
+        "architecture"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "file:src/training/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "src/training/__init__.py",
+      "summary": "__init__.py is part of the EuroSAT research codebase.",
+      "tags": [
+        "training-loop",
+        "evaluation",
+        "optimization"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python project module analyzed with tree-sitter structure extraction."
+    },
+    {
+      "id": "file:stats/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "stats/.gitkeep",
+      "summary": "Placeholder file that keeps an otherwise empty project directory under version control.",
+      "tags": [
+        "placeholder",
+        "repository-structure",
+        "empty-directory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:stats/channel_stats.json",
+      "type": "config",
+      "name": "channel_stats.json",
+      "filePath": "stats/channel_stats.json",
+      "summary": "channel_stats.json is part of the EuroSAT research codebase.",
+      "tags": [
+        "configuration",
+        "normalization",
+        "statistics"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/training/evaluate.py",
+      "target": "function:src/training/evaluate.py:evaluate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "evaluate.py contains evaluate."
+    },
+    {
+      "source": "file:src/training/mixaug.py",
+      "target": "function:src/training/mixaug.py:mixup_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "mixaug.py contains mixup_batch."
+    },
+    {
+      "source": "file:src/training/mixaug.py",
+      "target": "function:src/training/mixaug.py:cutmix_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "mixaug.py contains cutmix_batch."
+    },
+    {
+      "source": "file:src/training/mixaug.py",
+      "target": "function:src/training/mixaug.py:_sample_beta",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "mixaug.py contains _sample_beta."
+    },
+    {
+      "source": "file:src/training/mixaug.py",
+      "target": "function:src/training/mixaug.py:apply_batch_aug",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "mixaug.py contains apply_batch_aug."
+    },
+    {
+      "source": "file:src/training/train.py",
+      "target": "function:src/training/train.py:train",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "train.py contains train."
+    },
+    {
+      "source": "file:src/utils/wandb_utils.py",
+      "target": "function:src/utils/wandb_utils.py:make_run_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "wandb_utils.py contains make_run_name."
+    },
+    {
+      "source": "file:src/utils/wandb_utils.py",
+      "target": "function:src/utils/wandb_utils.py:make_notes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "wandb_utils.py contains make_notes."
+    },
+    {
+      "source": "file:src/utils/wandb_utils.py",
+      "target": "function:src/utils/wandb_utils.py:init_run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "wandb_utils.py contains init_run."
+    },
+    {
+      "source": "file:src/utils/wandb_utils.py",
+      "target": "function:src/utils/wandb_utils.py:log_epoch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "wandb_utils.py contains log_epoch."
+    },
+    {
+      "source": "file:src/utils/wandb_utils.py",
+      "target": "function:src/utils/wandb_utils.py:log_test_results",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "wandb_utils.py contains log_test_results."
+    },
+    {
+      "source": "file:src/utils/wandb_utils.py",
+      "target": "function:src/utils/wandb_utils.py:log_checkpoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "wandb_utils.py contains log_checkpoint."
+    },
+    {
+      "source": "file:src/training/train.py",
+      "target": "file:src/training/evaluate.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "src/training/train.py imports src/training/evaluate.py."
+    },
+    {
+      "source": "file:src/training/train.py",
+      "target": "file:src/training/mixaug.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "src/training/train.py imports src/training/mixaug.py."
+    },
+    {
+      "source": "file:src/training/train.py",
+      "target": "file:src/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "src/training/train.py imports src/utils/__init__.py."
+    },
+    {
+      "source": "file:src/training/train.py",
+      "target": "file:src/utils/wandb_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "src/training/train.py imports src/utils/wandb_utils.py."
+    },
+    {
+      "source": "function:src/training/mixaug.py:mixup_batch",
+      "target": "function:src/training/mixaug.py:_sample_beta",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "mixup_batch calls _sample_beta."
+    },
+    {
+      "source": "function:src/training/mixaug.py:cutmix_batch",
+      "target": "function:src/training/mixaug.py:_sample_beta",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "cutmix_batch calls _sample_beta."
+    },
+    {
+      "source": "function:src/training/mixaug.py:apply_batch_aug",
+      "target": "function:src/training/mixaug.py:mixup_batch",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "apply_batch_aug calls mixup_batch."
+    },
+    {
+      "source": "function:src/training/mixaug.py:apply_batch_aug",
+      "target": "function:src/training/mixaug.py:cutmix_batch",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "apply_batch_aug calls cutmix_batch."
+    },
+    {
+      "source": "function:src/utils/wandb_utils.py:init_run",
+      "target": "function:src/utils/wandb_utils.py:make_run_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "init_run calls make_run_name."
+    },
+    {
+      "source": "function:src/utils/wandb_utils.py:init_run",
+      "target": "function:src/utils/wandb_utils.py:make_notes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "init_run calls make_notes."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "function:scripts/train.py:build_loader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "train.py contains build_loader."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "function:scripts/train.py:run_one_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "train.py contains run_one_seed."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "function:scripts/train.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "train.py contains main."
+    },
+    {
+      "source": "file:src/data/transforms.py",
+      "target": "function:src/data/transforms.py:build_transform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "transforms.py contains build_transform."
+    },
+    {
+      "source": "file:src/data/transforms.py",
+      "target": "class:src/data/transforms.py:GeometricAugment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "transforms.py contains GeometricAugment."
+    },
+    {
+      "source": "file:src/data/transforms.py",
+      "target": "class:src/data/transforms.py:RandomResizedCrop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "transforms.py contains RandomResizedCrop."
+    },
+    {
+      "source": "file:src/data/transforms.py",
+      "target": "class:src/data/transforms.py:Compose",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "transforms.py contains Compose."
+    },
+    {
+      "source": "file:src/models/resnet.py",
+      "target": "function:src/models/resnet.py:_adapt_conv1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "resnet.py contains _adapt_conv1."
+    },
+    {
+      "source": "file:src/models/resnet.py",
+      "target": "function:src/models/resnet.py:build_resnet50",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "resnet.py contains build_resnet50."
+    },
+    {
+      "source": "file:src/utils/seed.py",
+      "target": "function:src/utils/seed.py:set_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "seed.py contains set_seed."
+    },
+    {
+      "source": "file:src/utils/seed.py",
+      "target": "function:src/utils/seed.py:seed_worker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "seed.py contains seed_worker."
+    },
+    {
+      "source": "file:src/utils/seed.py",
+      "target": "function:src/utils/seed.py:make_generator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "seed.py contains make_generator."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "scripts/train.py imports src/data/eurosat_dataset.py."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "file:src/data/transforms.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "scripts/train.py imports src/data/transforms.py."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "file:src/models/resnet.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "scripts/train.py imports src/models/resnet.py."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "file:src/training/evaluate.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "scripts/train.py imports src/training/evaluate.py."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "file:src/training/train.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "scripts/train.py imports src/training/train.py."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "file:src/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "scripts/train.py imports src/utils/__init__.py."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "file:src/utils/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "scripts/train.py imports src/utils/config.py."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "file:src/utils/seed.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "scripts/train.py imports src/utils/seed.py."
+    },
+    {
+      "source": "file:scripts/train.py",
+      "target": "file:src/utils/wandb_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "scripts/train.py imports src/utils/wandb_utils.py."
+    },
+    {
+      "source": "function:scripts/train.py:run_one_seed",
+      "target": "function:scripts/train.py:build_loader",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "run_one_seed calls build_loader."
+    },
+    {
+      "source": "function:scripts/train.py:main",
+      "target": "function:scripts/train.py:run_one_seed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls run_one_seed."
+    },
+    {
+      "source": "function:src/models/resnet.py:build_resnet50",
+      "target": "function:src/models/resnet.py:_adapt_conv1",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "build_resnet50 calls _adapt_conv1."
+    },
+    {
+      "source": "file:src/data/compute_stats.py",
+      "target": "function:src/data/compute_stats.py:compute_stats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "compute_stats.py contains compute_stats."
+    },
+    {
+      "source": "file:src/data/compute_stats.py",
+      "target": "function:src/data/compute_stats.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "compute_stats.py contains main."
+    },
+    {
+      "source": "file:src/data/create_splits.py",
+      "target": "function:src/data/create_splits.py:gather_samples",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_splits.py contains gather_samples."
+    },
+    {
+      "source": "file:src/data/create_splits.py",
+      "target": "function:src/data/create_splits.py:make_splits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_splits.py contains make_splits."
+    },
+    {
+      "source": "file:src/data/create_splits.py",
+      "target": "function:src/data/create_splits.py:write_split",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_splits.py contains write_split."
+    },
+    {
+      "source": "file:src/data/create_splits.py",
+      "target": "function:src/data/create_splits.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_splits.py contains main."
+    },
+    {
+      "source": "file:src/data/eurosat_dataset.py",
+      "target": "function:src/data/eurosat_dataset.py:read_patch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "eurosat_dataset.py contains read_patch."
+    },
+    {
+      "source": "file:src/data/eurosat_dataset.py",
+      "target": "function:src/data/eurosat_dataset.py:compute_indices",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "eurosat_dataset.py contains compute_indices."
+    },
+    {
+      "source": "file:src/data/eurosat_dataset.py",
+      "target": "function:src/data/eurosat_dataset.py:load_split",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "eurosat_dataset.py contains load_split."
+    },
+    {
+      "source": "file:src/data/eurosat_dataset.py",
+      "target": "function:src/data/eurosat_dataset.py:stats_to_channel_vectors",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "eurosat_dataset.py contains stats_to_channel_vectors."
+    },
+    {
+      "source": "file:src/data/eurosat_dataset.py",
+      "target": "class:src/data/eurosat_dataset.py:EuroSATDataset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "eurosat_dataset.py contains EuroSATDataset."
+    },
+    {
+      "source": "file:src/utils/config.py",
+      "target": "function:src/utils/config.py:load_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "config.py contains load_config."
+    },
+    {
+      "source": "file:src/utils/config.py",
+      "target": "function:src/utils/config.py:resolve_bands",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "config.py contains resolve_bands."
+    },
+    {
+      "source": "file:src/data/compute_stats.py",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "src/data/compute_stats.py imports src/data/eurosat_dataset.py."
+    },
+    {
+      "source": "file:src/data/create_splits.py",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "src/data/create_splits.py imports src/data/eurosat_dataset.py."
+    },
+    {
+      "source": "file:src/utils/config.py",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "description": "src/utils/config.py imports src/data/eurosat_dataset.py."
+    },
+    {
+      "source": "function:src/data/compute_stats.py:main",
+      "target": "function:src/data/compute_stats.py:compute_stats",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls compute_stats."
+    },
+    {
+      "source": "function:src/data/create_splits.py:main",
+      "target": "function:src/data/create_splits.py:gather_samples",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls gather_samples."
+    },
+    {
+      "source": "function:src/data/create_splits.py:main",
+      "target": "function:src/data/create_splits.py:make_splits",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls make_splits."
+    },
+    {
+      "source": "function:src/data/create_splits.py:main",
+      "target": "function:src/data/create_splits.py:write_split",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls write_split."
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "document:README.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Project documentation is related to the README overview."
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:scripts/train.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "README explains the training CLI workflow."
+    },
+    {
+      "source": "document:requirements.txt",
+      "target": "file:scripts/train.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Requirements describe the runtime environment for training."
+    },
+    {
+      "source": "config:configs/research/rq1_B_100pct.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/research/rq1_B_100pct.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/research/rq1_B_100pct.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/research/rq1_B_100pct.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/research/rq1_B_10pct.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/research/rq1_B_10pct.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/research/rq1_B_10pct.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/research/rq1_B_10pct.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/research/rq1_B_1pct.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/research/rq1_B_1pct.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/research/rq1_B_1pct.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/research/rq1_B_1pct.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/research/rq1_B_5pct.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/research/rq1_B_5pct.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/research/rq1_B_5pct.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/research/rq1_B_5pct.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier1_13bands.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier1_13bands.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier1_13bands.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier1_13bands.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier1_13bands_fixedconv1.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier1_13bands_fixedconv1.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier1_13bands_fixedconv1.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier1_13bands_fixedconv1.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier1_rgb.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier1_rgb.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier1_rgb.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier1_rgb.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h2_13bands_indices.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h2_13bands_indices.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h2_13bands_indices.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h2_13bands_indices.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h2_13bands_indices_fixedconv1.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h2_13bands_indices_fixedconv1.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h2_13bands_indices_fixedconv1.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h2_13bands_indices_fixedconv1.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h3a_13bands_ndvi.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3a_13bands_ndvi.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h3a_13bands_ndvi.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3a_13bands_ndvi.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h3a_13bands_ndvi_fixedconv1.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3a_13bands_ndvi_fixedconv1.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h3a_13bands_ndvi_fixedconv1.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3a_13bands_ndvi_fixedconv1.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h3b_13bands_ndwi.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3b_13bands_ndwi.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h3b_13bands_ndwi.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3b_13bands_ndwi.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h3b_13bands_ndwi_fixedconv1.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3b_13bands_ndwi_fixedconv1.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h3b_13bands_ndwi_fixedconv1.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3b_13bands_ndwi_fixedconv1.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h3c_13bands_ndbi.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3c_13bands_ndbi.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h3c_13bands_ndbi.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3c_13bands_ndbi.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h3c_13bands_ndbi_fixedconv1.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3c_13bands_ndbi_fixedconv1.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h3c_13bands_ndbi_fixedconv1.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3c_13bands_ndbi_fixedconv1.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h3d_13bands_ndmi.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3d_13bands_ndmi.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h3d_13bands_ndmi.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3d_13bands_ndmi.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h3d_13bands_ndmi_fixedconv1.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3d_13bands_ndmi_fixedconv1.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h3d_13bands_ndmi_fixedconv1.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h3d_13bands_ndmi_fixedconv1.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h4_rgb_indices.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h4_rgb_indices.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h4_rgb_indices.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h4_rgb_indices.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h5_indices_only.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h5_indices_only.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h5_indices_only.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h5_indices_only.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h5a_10m.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h5a_10m.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h5a_10m.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h5a_10m.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h5b_10m_20m.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h5b_10m_20m.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h5b_10m_20m.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h5b_10m_20m.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier2_h5c_10m_atmospheric.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h5c_10m_atmospheric.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier2_h5c_10m_atmospheric.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier2_h5c_10m_atmospheric.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_a_lr1e-3.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_a_lr1e-3.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_a_lr1e-3.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_a_lr1e-3.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_a_lr3e-4.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_a_lr3e-4.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_a_lr3e-4.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_a_lr3e-4.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_a_lr3e-5.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_a_lr3e-5.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_a_lr3e-5.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_a_lr3e-5.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_b_wd1e-5.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_b_wd1e-5.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_b_wd1e-5.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_b_wd1e-5.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_b_wd5e-4.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_b_wd5e-4.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_b_wd5e-4.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_b_wd5e-4.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_c_cutmix.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_c_cutmix.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_c_cutmix.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_c_cutmix.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_c_mixup.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_c_mixup.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_c_mixup.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_c_mixup.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_c_rrc.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_c_rrc.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_c_rrc.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_c_rrc.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_d_sgd.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_d_sgd.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_d_sgd.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_d_sgd.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:configs/tier3_e_sgd_final.yaml",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_e_sgd_final.yaml configures training runs."
+    },
+    {
+      "source": "config:configs/tier3_e_sgd_final.yaml",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "configs/tier3_e_sgd_final.yaml is loaded by the config utility."
+    },
+    {
+      "source": "config:dataset/splits/label_fraction_metadata.json",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "dataset/splits/label_fraction_metadata.json configures training runs."
+    },
+    {
+      "source": "config:dataset/splits/label_fraction_metadata.json",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "dataset/splits/label_fraction_metadata.json is loaded by the config utility."
+    },
+    {
+      "source": "document:dataset/splits/test.txt",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Split file selects samples loaded by the dataset module."
+    },
+    {
+      "source": "document:dataset/splits/train.txt",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Split file selects samples loaded by the dataset module."
+    },
+    {
+      "source": "document:dataset/splits/train_1.txt",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Split file selects samples loaded by the dataset module."
+    },
+    {
+      "source": "document:dataset/splits/train_10.txt",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Split file selects samples loaded by the dataset module."
+    },
+    {
+      "source": "document:dataset/splits/train_100.txt",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Split file selects samples loaded by the dataset module."
+    },
+    {
+      "source": "document:dataset/splits/train_5.txt",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Split file selects samples loaded by the dataset module."
+    },
+    {
+      "source": "document:dataset/splits/val.txt",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Split file selects samples loaded by the dataset module."
+    },
+    {
+      "source": "document:paper/paper_analysis.md",
+      "target": "document:README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Paper artifact extends the project overview."
+    },
+    {
+      "source": "document:paper/presentation.md",
+      "target": "document:README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Paper artifact extends the project overview."
+    },
+    {
+      "source": "document:paper/results_table.md",
+      "target": "document:README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Paper artifact extends the project overview."
+    },
+    {
+      "source": "file:scripts/create_label_fraction_splits.py",
+      "target": "function:scripts/create_label_fraction_splits.py:read_split",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_label_fraction_splits.py contains read_split."
+    },
+    {
+      "source": "file:scripts/create_label_fraction_splits.py",
+      "target": "function:scripts/create_label_fraction_splits.py:sha256_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_label_fraction_splits.py contains sha256_file."
+    },
+    {
+      "source": "file:scripts/create_label_fraction_splits.py",
+      "target": "function:scripts/create_label_fraction_splits.py:group_by_label",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_label_fraction_splits.py contains group_by_label."
+    },
+    {
+      "source": "file:scripts/create_label_fraction_splits.py",
+      "target": "function:scripts/create_label_fraction_splits.py:nested_subsets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_label_fraction_splits.py contains nested_subsets."
+    },
+    {
+      "source": "file:scripts/create_label_fraction_splits.py",
+      "target": "function:scripts/create_label_fraction_splits.py:assert_nested",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_label_fraction_splits.py contains assert_nested."
+    },
+    {
+      "source": "file:scripts/create_label_fraction_splits.py",
+      "target": "function:scripts/create_label_fraction_splits.py:write_split",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_label_fraction_splits.py contains write_split."
+    },
+    {
+      "source": "file:scripts/create_label_fraction_splits.py",
+      "target": "function:scripts/create_label_fraction_splits.py:class_counts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_label_fraction_splits.py contains class_counts."
+    },
+    {
+      "source": "file:scripts/create_label_fraction_splits.py",
+      "target": "function:scripts/create_label_fraction_splits.py:parse_fractions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_label_fraction_splits.py contains parse_fractions."
+    },
+    {
+      "source": "file:scripts/create_label_fraction_splits.py",
+      "target": "function:scripts/create_label_fraction_splits.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1,
+      "description": "create_label_fraction_splits.py contains main."
+    },
+    {
+      "source": "function:scripts/create_label_fraction_splits.py:nested_subsets",
+      "target": "function:scripts/create_label_fraction_splits.py:group_by_label",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "nested_subsets calls group_by_label."
+    },
+    {
+      "source": "function:scripts/create_label_fraction_splits.py:main",
+      "target": "function:scripts/create_label_fraction_splits.py:parse_fractions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls parse_fractions."
+    },
+    {
+      "source": "function:scripts/create_label_fraction_splits.py:main",
+      "target": "function:scripts/create_label_fraction_splits.py:read_split",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls read_split."
+    },
+    {
+      "source": "function:scripts/create_label_fraction_splits.py:main",
+      "target": "function:scripts/create_label_fraction_splits.py:nested_subsets",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls nested_subsets."
+    },
+    {
+      "source": "function:scripts/create_label_fraction_splits.py:main",
+      "target": "function:scripts/create_label_fraction_splits.py:assert_nested",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls assert_nested."
+    },
+    {
+      "source": "function:scripts/create_label_fraction_splits.py:main",
+      "target": "function:scripts/create_label_fraction_splits.py:sha256_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls sha256_file."
+    },
+    {
+      "source": "function:scripts/create_label_fraction_splits.py:main",
+      "target": "function:scripts/create_label_fraction_splits.py:class_counts",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls class_counts."
+    },
+    {
+      "source": "function:scripts/create_label_fraction_splits.py:main",
+      "target": "function:scripts/create_label_fraction_splits.py:write_split",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8,
+      "description": "main calls write_split."
+    },
+    {
+      "source": "file:notebooks/.gitkeep",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Notebook depends on the dataset loading pipeline."
+    },
+    {
+      "source": "file:notebooks/verify_allbands_loader.ipynb",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Notebook depends on the dataset loading pipeline."
+    },
+    {
+      "source": "file:notebooks/visualize_bands_indices.ipynb",
+      "target": "file:src/data/eurosat_dataset.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "Notebook depends on the dataset loading pipeline."
+    },
+    {
+      "source": "config:stats/channel_stats.json",
+      "target": "file:scripts/train.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "stats/channel_stats.json configures training runs."
+    },
+    {
+      "source": "config:stats/channel_stats.json",
+      "target": "file:src/utils/config.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "description": "stats/channel_stats.json is loaded by the config utility."
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:experiment-entrypoints",
+      "name": "Experiment Entry Points",
+      "description": "CLI scripts and notebooks used to launch, verify, and inspect EuroSAT experiments.",
+      "nodeIds": [
+        "file:scripts/train.py",
+        "file:scripts/__init__.py",
+        "file:scripts/.gitkeep",
+        "file:scripts/create_label_fraction_splits.py",
+        "file:notebooks/.gitkeep",
+        "file:notebooks/verify_allbands_loader.ipynb",
+        "file:notebooks/visualize_bands_indices.ipynb"
+      ]
+    },
+    {
+      "id": "layer:data-pipeline",
+      "name": "Data Pipeline",
+      "description": "Dataset loading, split generation, spectral band handling, statistics, and reproducible split artifacts.",
+      "nodeIds": [
+        "file:src/data/transforms.py",
+        "file:src/data/compute_stats.py",
+        "file:src/data/create_splits.py",
+        "file:src/data/eurosat_dataset.py",
+        "file:src/data/__init__.py",
+        "config:dataset/splits/label_fraction_metadata.json",
+        "document:dataset/splits/test.txt",
+        "document:dataset/splits/train.txt",
+        "document:dataset/splits/train_1.txt",
+        "document:dataset/splits/train_10.txt",
+        "document:dataset/splits/train_100.txt",
+        "document:dataset/splits/train_5.txt",
+        "document:dataset/splits/val.txt",
+        "file:dataset/splits/.gitkeep",
+        "file:stats/.gitkeep",
+        "config:stats/channel_stats.json"
+      ]
+    },
+    {
+      "id": "layer:model-architecture",
+      "name": "Model Architecture",
+      "description": "Model construction and channel adaptation for RGB, 13-band, and spectral-index ResNet experiments.",
+      "nodeIds": [
+        "file:src/models/resnet.py",
+        "file:src/models/__init__.py"
+      ]
+    },
+    {
+      "id": "layer:training-and-evaluation",
+      "name": "Training and Evaluation",
+      "description": "Epoch training, evaluation, mixed augmentations, and optimization behavior.",
+      "nodeIds": [
+        "file:src/training/evaluate.py",
+        "file:src/training/mixaug.py",
+        "file:src/training/train.py",
+        "file:src/training/__init__.py"
+      ]
+    },
+    {
+      "id": "layer:utilities-and-tracking",
+      "name": "Utilities and Tracking",
+      "description": "Configuration loading, deterministic seeding, and experiment tracking support.",
+      "nodeIds": [
+        "file:src/utils/__init__.py",
+        "file:src/utils/wandb_utils.py",
+        "file:src/utils/seed.py",
+        "file:src/utils/config.py"
+      ]
+    },
+    {
+      "id": "layer:experiment-configurations",
+      "name": "Experiment Configurations",
+      "description": "YAML recipes for baseline, refinement, optimizer, augmentation, and low-label research runs.",
+      "nodeIds": [
+        "config:configs/research/rq1_B_100pct.yaml",
+        "config:configs/research/rq1_B_10pct.yaml",
+        "config:configs/research/rq1_B_1pct.yaml",
+        "config:configs/research/rq1_B_5pct.yaml",
+        "config:configs/tier1_13bands.yaml",
+        "config:configs/tier1_13bands_fixedconv1.yaml",
+        "config:configs/tier1_rgb.yaml",
+        "config:configs/tier2_h2_13bands_indices.yaml",
+        "config:configs/tier2_h2_13bands_indices_fixedconv1.yaml",
+        "config:configs/tier2_h3a_13bands_ndvi.yaml",
+        "config:configs/tier2_h3a_13bands_ndvi_fixedconv1.yaml",
+        "config:configs/tier2_h3b_13bands_ndwi.yaml",
+        "config:configs/tier2_h3b_13bands_ndwi_fixedconv1.yaml",
+        "config:configs/tier2_h3c_13bands_ndbi.yaml",
+        "config:configs/tier2_h3c_13bands_ndbi_fixedconv1.yaml",
+        "config:configs/tier2_h3d_13bands_ndmi.yaml",
+        "config:configs/tier2_h3d_13bands_ndmi_fixedconv1.yaml",
+        "config:configs/tier2_h4_rgb_indices.yaml",
+        "config:configs/tier2_h5_indices_only.yaml",
+        "config:configs/tier2_h5a_10m.yaml",
+        "config:configs/tier2_h5b_10m_20m.yaml",
+        "config:configs/tier2_h5c_10m_atmospheric.yaml",
+        "config:configs/tier3_a_lr1e-3.yaml",
+        "config:configs/tier3_a_lr3e-4.yaml",
+        "config:configs/tier3_a_lr3e-5.yaml",
+        "config:configs/tier3_b_wd1e-5.yaml",
+        "config:configs/tier3_b_wd5e-4.yaml",
+        "config:configs/tier3_c_cutmix.yaml",
+        "config:configs/tier3_c_mixup.yaml",
+        "config:configs/tier3_c_rrc.yaml",
+        "config:configs/tier3_d_sgd.yaml",
+        "config:configs/tier3_e_sgd_final.yaml",
+        "file:configs/.gitkeep"
+      ]
+    },
+    {
+      "id": "layer:research-documentation",
+      "name": "Research Documentation",
+      "description": "Project overview, protocol memory, research notes, result tables, presentation material, and dependencies.",
+      "nodeIds": [
+        "document:paper/paper_analysis.md",
+        "document:paper/presentation.md",
+        "document:paper/results_table.md",
+        "document:README.md",
+        "document:CLAUDE.md",
+        "document:requirements.txt"
+      ]
+    },
+    {
+      "id": "layer:repository-scaffolding",
+      "name": "Repository Scaffolding",
+      "description": "Small placeholder or package marker files that preserve repository structure.",
+      "nodeIds": [
+        "file:src/__init__.py"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "Start with the README and project memory to understand the reproduce-refine-research workflow and current EuroSAT conclusions.",
+      "nodeIds": [
+        "document:README.md",
+        "document:CLAUDE.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Dataset and Splits",
+      "description": "Inspect how EuroSAT samples, train/validation/test splits, label-fraction subsets, and channel statistics feed the experiments.",
+      "nodeIds": [
+        "file:src/data/eurosat_dataset.py",
+        "file:src/data/create_splits.py",
+        "config:dataset/splits/label_fraction_metadata.json",
+        "config:stats/channel_stats.json"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Bands and Transforms",
+      "description": "Follow band selection, spectral-index computation, normalization vectors, and augmentation transforms before tensors enter the model.",
+      "nodeIds": [
+        "file:src/data/eurosat_dataset.py",
+        "file:src/data/transforms.py",
+        "file:src/data/compute_stats.py"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Model Adaptation",
+      "description": "Review the ResNet-50 construction and first-convolution adaptation that supports RGB and multispectral Sentinel-2 inputs.",
+      "nodeIds": [
+        "file:src/models/resnet.py"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Training Entry Point",
+      "description": "Trace the CLI path that loads YAML configs, resolves bands, builds loaders and models, and runs one seed of an experiment.",
+      "nodeIds": [
+        "file:scripts/train.py",
+        "file:src/utils/config.py",
+        "config:configs/research/rq1_B_1pct.yaml",
+        "config:configs/tier1_13bands_fixedconv1.yaml"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "Optimization and Evaluation",
+      "description": "Inspect the training loop, evaluation pass, mixed augmentations, seeding, and W&B logging around each experiment run.",
+      "nodeIds": [
+        "file:src/training/train.py",
+        "file:src/training/evaluate.py",
+        "file:src/training/mixaug.py",
+        "file:src/utils/seed.py",
+        "file:src/utils/wandb_utils.py"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Research Outputs",
+      "description": "Finish with analysis notes, result tables, and presentation material that summarize the refine phase and frame the low-label research direction.",
+      "nodeIds": [
+        "document:paper/paper_analysis.md",
+        "document:paper/results_table.md",
+        "document:paper/presentation.md"
+      ]
+    }
+  ]
+}

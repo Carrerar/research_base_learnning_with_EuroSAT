@@ -1,0 +1,1762 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "c0b8812efc5fae90886c56b1beca1d41af56cb92",
+  "generatedAt": "2026-05-26T07:52:01.111Z",
+  "files": {
+    "CLAUDE.md": {
+      "filePath": "CLAUDE.md",
+      "contentHash": "7623b2527ca3d35a6c68105720f4bd2dcc2f80c8f86ed1f4b089da680395f914",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 543,
+      "hasStructuralAnalysis": true
+    },
+    "configs/.gitkeep": {
+      "filePath": "configs/.gitkeep",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "configs/research/rq1_B_100pct.yaml": {
+      "filePath": "configs/research/rq1_B_100pct.yaml",
+      "contentHash": "53d089f3678b73ee9959a65b7688f2778f2aa593b86788058e0d172cb7d60397",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "configs/research/rq1_B_10pct.yaml": {
+      "filePath": "configs/research/rq1_B_10pct.yaml",
+      "contentHash": "f76de2ec4371b493ded41ab0938109133d6e84066d5c051bfced4b1c0881fc14",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "configs/research/rq1_B_1pct.yaml": {
+      "filePath": "configs/research/rq1_B_1pct.yaml",
+      "contentHash": "827fd0f74eb57d3f1235a18a7895e3eec6a35f2bc8a9876d1bb3cab39f1a129a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "configs/research/rq1_B_5pct.yaml": {
+      "filePath": "configs/research/rq1_B_5pct.yaml",
+      "contentHash": "235d5f1d58aa3f97b30c1e6e55508ec7dca4b06090bb38c3c90a7c868e92af83",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier1_13bands_fixedconv1.yaml": {
+      "filePath": "configs/tier1_13bands_fixedconv1.yaml",
+      "contentHash": "7f37a2017e6efadd19fb456f5b334d9fd897a48fe19c90e073cb18afe3f06bb5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier1_13bands.yaml": {
+      "filePath": "configs/tier1_13bands.yaml",
+      "contentHash": "ee9829af22aa783560327340bfd3f0a497e87fd917b6452801721b35523605cf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier1_rgb.yaml": {
+      "filePath": "configs/tier1_rgb.yaml",
+      "contentHash": "5c77ec1d6a852fec646eb43c74f643a2fb15b7fbb7397ae92aef0df677db09be",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h2_13bands_indices_fixedconv1.yaml": {
+      "filePath": "configs/tier2_h2_13bands_indices_fixedconv1.yaml",
+      "contentHash": "e4a5e8ec2037db2272efa65d836574ae05bd5e66681c55169f5962c9d408475b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h2_13bands_indices.yaml": {
+      "filePath": "configs/tier2_h2_13bands_indices.yaml",
+      "contentHash": "ecc10c243af42b10a683d9a6ea979a2a573a1c741bf2183c6cacbcc211e7228f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h3a_13bands_ndvi_fixedconv1.yaml": {
+      "filePath": "configs/tier2_h3a_13bands_ndvi_fixedconv1.yaml",
+      "contentHash": "77c0268b449d48a705799e472dbeb542017032b6bac185164ac64e03056c987d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h3a_13bands_ndvi.yaml": {
+      "filePath": "configs/tier2_h3a_13bands_ndvi.yaml",
+      "contentHash": "7ff396c33b6e25fcdb4c9ef395bffb852d2bdb294c4eaa32d26cb304b2ff9562",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h3b_13bands_ndwi_fixedconv1.yaml": {
+      "filePath": "configs/tier2_h3b_13bands_ndwi_fixedconv1.yaml",
+      "contentHash": "098f58e7b398ecf66ef27b98d3fd851f9718934dfce8e04487bdfae881affceb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h3b_13bands_ndwi.yaml": {
+      "filePath": "configs/tier2_h3b_13bands_ndwi.yaml",
+      "contentHash": "3a8c2d958b11a03e1c94f8be07e71c8ae2e957bbafb1cec945e02a6d5b3b5ce7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h3c_13bands_ndbi_fixedconv1.yaml": {
+      "filePath": "configs/tier2_h3c_13bands_ndbi_fixedconv1.yaml",
+      "contentHash": "341e012f4a29a0b94b88d5d1cb1f0262ecccaf0779220acda5a0e04f2a0052c0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h3c_13bands_ndbi.yaml": {
+      "filePath": "configs/tier2_h3c_13bands_ndbi.yaml",
+      "contentHash": "8ae07f0ff98441aefd41c67ee827ebb90fb25da2648129715cbe4410b4096d2e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h3d_13bands_ndmi_fixedconv1.yaml": {
+      "filePath": "configs/tier2_h3d_13bands_ndmi_fixedconv1.yaml",
+      "contentHash": "7cff69c3dab5d72ecda39d44e1cd94e893e31c2141c386acfd121ac25b750a9b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h3d_13bands_ndmi.yaml": {
+      "filePath": "configs/tier2_h3d_13bands_ndmi.yaml",
+      "contentHash": "ed670f9a5a5f5b5d118b2b5415e9ed44c4ed0bea65ae64e49443c87c302142d2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h4_rgb_indices.yaml": {
+      "filePath": "configs/tier2_h4_rgb_indices.yaml",
+      "contentHash": "c660142d36d398d1b36a0ee20f802c3fa21ad4aadd825b95dcca7053432ccf55",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h5_indices_only.yaml": {
+      "filePath": "configs/tier2_h5_indices_only.yaml",
+      "contentHash": "2e5a0c0e21639c454eb6f2d2ce64353cace928003125d749140977b6966a7a47",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h5a_10m.yaml": {
+      "filePath": "configs/tier2_h5a_10m.yaml",
+      "contentHash": "c53f152527f070a1e132d559d6bb6692aa53393883ae5bb30e44161d93afb307",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h5b_10m_20m.yaml": {
+      "filePath": "configs/tier2_h5b_10m_20m.yaml",
+      "contentHash": "382f4e9351b33d810aef568a1d038b749dce52a2885d627d53c1ab7a1812933d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier2_h5c_10m_atmospheric.yaml": {
+      "filePath": "configs/tier2_h5c_10m_atmospheric.yaml",
+      "contentHash": "1ce730d9c58da67ebb7d7728be73eb69574830429ee7a89bc030dbc011a90b45",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_a_lr1e-3.yaml": {
+      "filePath": "configs/tier3_a_lr1e-3.yaml",
+      "contentHash": "322a757f3ff042b26d8a02ea7c69108166059074b6767ffae1fb9786f4655105",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_a_lr3e-4.yaml": {
+      "filePath": "configs/tier3_a_lr3e-4.yaml",
+      "contentHash": "707da4f5492cb207975c1a956cd247b6b86240e31bba91081a6212e59a957167",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_a_lr3e-5.yaml": {
+      "filePath": "configs/tier3_a_lr3e-5.yaml",
+      "contentHash": "1f5bbf1181ac4ac2fa2912a2ff436016766cfbce2215f14600373c8d609cf8ca",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_b_wd1e-5.yaml": {
+      "filePath": "configs/tier3_b_wd1e-5.yaml",
+      "contentHash": "83105797c21e602ded646d5bca1a6f57279f6d56a5e52b3ec621e18664720961",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_b_wd5e-4.yaml": {
+      "filePath": "configs/tier3_b_wd5e-4.yaml",
+      "contentHash": "8b024f406bac534648bcec77d9af5540bfd5d906b029a5fc15e23fc80baa42ef",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_c_cutmix.yaml": {
+      "filePath": "configs/tier3_c_cutmix.yaml",
+      "contentHash": "5e588ba7f1a9c7d51ab564fd7266ec9bdc5b246641e6f78725e3ec04150285dc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_c_mixup.yaml": {
+      "filePath": "configs/tier3_c_mixup.yaml",
+      "contentHash": "9e2dd76e02514a67a6947affeac12cf590b130f939b2977989754b0fb3f64221",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_c_rrc.yaml": {
+      "filePath": "configs/tier3_c_rrc.yaml",
+      "contentHash": "5dd2377c4d313e877591193771a1614243617044211e39649d85f88b021eff46",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 36,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_d_sgd.yaml": {
+      "filePath": "configs/tier3_d_sgd.yaml",
+      "contentHash": "b2a0f1e9cd4f71ba001411cabec4a592c64feb4a0b084331920ac05af142bfde",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "configs/tier3_e_sgd_final.yaml": {
+      "filePath": "configs/tier3_e_sgd_final.yaml",
+      "contentHash": "3040c6bd1cf225d1cef17fc0ee7170bdb34e34370025e742f4a1cb388b8a4612",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "dataset/splits/.gitkeep": {
+      "filePath": "dataset/splits/.gitkeep",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "dataset/splits/label_fraction_metadata.json": {
+      "filePath": "dataset/splits/label_fraction_metadata.json",
+      "contentHash": "ff9d6c8fcf377fac583d80ee72f61fef3fbc4116edee9d3c931b01c6c6d93f46",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 91,
+      "hasStructuralAnalysis": true
+    },
+    "dataset/splits/test.txt": {
+      "filePath": "dataset/splits/test.txt",
+      "contentHash": "e520632f78de24aa7d6202fef1306d9a7cba13d3a15d63f570ebb22dfbbe51c7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2701,
+      "hasStructuralAnalysis": false
+    },
+    "dataset/splits/train_1.txt": {
+      "filePath": "dataset/splits/train_1.txt",
+      "contentHash": "92031198e8eb2a62939d0c0c364092a17b70e3a483c452b62f60654ffa06f066",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 217,
+      "hasStructuralAnalysis": false
+    },
+    "dataset/splits/train_10.txt": {
+      "filePath": "dataset/splits/train_10.txt",
+      "contentHash": "e70eace99654dc66f457a861f54403777dde5f30ee3bccd25daa3d81dec9414a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2161,
+      "hasStructuralAnalysis": false
+    },
+    "dataset/splits/train_100.txt": {
+      "filePath": "dataset/splits/train_100.txt",
+      "contentHash": "0cb88b02b27ae72f248197a1abf0c64c691d3f6133831e1b1ba574f8d49b4595",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21601,
+      "hasStructuralAnalysis": false
+    },
+    "dataset/splits/train_5.txt": {
+      "filePath": "dataset/splits/train_5.txt",
+      "contentHash": "7e8e2f4e754ff8b028699e58e8a3a07b945a6e2a1dd90bfd41aaaceebe7fb59a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1081,
+      "hasStructuralAnalysis": false
+    },
+    "dataset/splits/train.txt": {
+      "filePath": "dataset/splits/train.txt",
+      "contentHash": "049d7ecf30bd21bd5a870a9c9f0715ab70ec0a14e40072a1d03a5f5516094a69",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21601,
+      "hasStructuralAnalysis": false
+    },
+    "dataset/splits/val.txt": {
+      "filePath": "dataset/splits/val.txt",
+      "contentHash": "ca48bf2a2ec4d401c83d8613c55500d58f3fa55986f20a9ea91c59b1d32639e0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2701,
+      "hasStructuralAnalysis": false
+    },
+    "notebooks/.gitkeep": {
+      "filePath": "notebooks/.gitkeep",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "notebooks/verify_allbands_loader.ipynb": {
+      "filePath": "notebooks/verify_allbands_loader.ipynb",
+      "contentHash": "68aac379346425033a3d75c172a1a352a8ae3168c65db8758869dbde15469a4e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 393,
+      "hasStructuralAnalysis": false
+    },
+    "notebooks/visualize_bands_indices.ipynb": {
+      "filePath": "notebooks/visualize_bands_indices.ipynb",
+      "contentHash": "6d73fec394da4b3ccd982eb3275356bf9fda44fe8fcd779371442f37925f181a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 598,
+      "hasStructuralAnalysis": false
+    },
+    "paper/paper_analysis.md": {
+      "filePath": "paper/paper_analysis.md",
+      "contentHash": "0a2ae8693dbacab240066fc00237ec9d97b7b1798c3699362cbcb4aea524c24f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 390,
+      "hasStructuralAnalysis": true
+    },
+    "paper/presentation.md": {
+      "filePath": "paper/presentation.md",
+      "contentHash": "8350cac0a91e57cc63670f0ad12f413522a1d320356129ddfeef058c1327c6fb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 540,
+      "hasStructuralAnalysis": true
+    },
+    "paper/results_table.md": {
+      "filePath": "paper/results_table.md",
+      "contentHash": "77882fe139810bb2efb17f99039624b00957a02f9d03463f39dd5ba28d2812f1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 628,
+      "hasStructuralAnalysis": true
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "fb70965da9c677a3dac29df3d95c6d0405add7a8ce8e1942b58a48c145b448c2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 76,
+      "hasStructuralAnalysis": true
+    },
+    "requirements.txt": {
+      "filePath": "requirements.txt",
+      "contentHash": "1cf5153301e5faa5510d83ebaaf4bf914421dc495762ba45a87cd9b35cf8bd36",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": false
+    },
+    "scripts/__init__.py": {
+      "filePath": "scripts/__init__.py",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "scripts/.gitkeep": {
+      "filePath": "scripts/.gitkeep",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "scripts/create_label_fraction_splits.py": {
+      "filePath": "scripts/create_label_fraction_splits.py",
+      "contentHash": "6c4916ae2be2cacc9a63dd88561dc77780881a698d3a47a8f4ecbf377792b779",
+      "functions": [
+        {
+          "name": "read_split",
+          "params": [
+            "path"
+          ],
+          "returnType": "list[tuple[str, int]]",
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "sha256_file",
+          "params": [
+            "path"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "group_by_label",
+          "params": [
+            "samples"
+          ],
+          "returnType": "dict[int, list[tuple[str, int]]]",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "nested_subsets",
+          "params": [
+            "samples",
+            "fractions",
+            "seed"
+          ],
+          "returnType": "dict[str, list[tuple[str, int]]]",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "assert_nested",
+          "params": [
+            "subsets"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "write_split",
+          "params": [
+            "path",
+            "samples"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "class_counts",
+          "params": [
+            "samples"
+          ],
+          "returnType": "dict[str, int]",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "parse_fractions",
+          "params": [
+            "values"
+          ],
+          "returnType": "dict[str, float]",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 38
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "hashlib",
+          "specifiers": [
+            "hashlib"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        },
+        {
+          "source": "pathlib",
+          "specifiers": [
+            "Path"
+          ]
+        }
+      ],
+      "exports": [
+        "read_split",
+        "sha256_file",
+        "group_by_label",
+        "nested_subsets",
+        "assert_nested",
+        "write_split",
+        "class_counts",
+        "parse_fractions",
+        "main"
+      ],
+      "totalLines": 159,
+      "hasStructuralAnalysis": true
+    },
+    "scripts/train.py": {
+      "filePath": "scripts/train.py",
+      "contentHash": "f2b297e22993b241e49d88c58c4f8d7d74585b3dbe2b0f74ee8328b700c86e9e",
+      "functions": [
+        {
+          "name": "build_loader",
+          "params": [
+            "samples",
+            "root",
+            "bands",
+            "indices",
+            "norm_mean",
+            "norm_std",
+            "train",
+            "batch_size",
+            "num_workers",
+            "seed",
+            "spatial_aug"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "run_one_seed",
+          "params": [
+            "cfg",
+            "seed",
+            "args",
+            "channel_stats"
+          ],
+          "exported": true,
+          "lineCount": 95
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "src.data.eurosat_dataset",
+          "specifiers": [
+            "CLASSES",
+            "EuroSATDataset",
+            "load_split",
+            "stats_to_channel_vectors"
+          ]
+        },
+        {
+          "source": "src.data.transforms",
+          "specifiers": [
+            "build_transform"
+          ]
+        },
+        {
+          "source": "src.models.resnet",
+          "specifiers": [
+            "build_resnet50"
+          ]
+        },
+        {
+          "source": "src.training.evaluate",
+          "specifiers": [
+            "evaluate"
+          ]
+        },
+        {
+          "source": "src.training.train",
+          "specifiers": [
+            "train"
+          ]
+        },
+        {
+          "source": "src.utils",
+          "specifiers": [
+            "wandb_utils"
+          ]
+        },
+        {
+          "source": "src.utils.config",
+          "specifiers": [
+            "load_config",
+            "resolve_bands"
+          ]
+        },
+        {
+          "source": "src.utils.seed",
+          "specifiers": [
+            "make_generator",
+            "seed_worker",
+            "set_seed"
+          ]
+        }
+      ],
+      "exports": [
+        "build_loader",
+        "run_one_seed",
+        "main"
+      ],
+      "totalLines": 184,
+      "hasStructuralAnalysis": true
+    },
+    "src/__init__.py": {
+      "filePath": "src/__init__.py",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/__init__.py": {
+      "filePath": "src/data/__init__.py",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/compute_stats.py": {
+      "filePath": "src/data/compute_stats.py",
+      "contentHash": "498ac4e74d17b340ebb3cfb70a58ead2ee6dfc70c8c292d410a858a4f8d4d53c",
+      "functions": [
+        {
+          "name": "compute_stats",
+          "params": [
+            "data_root",
+            "split_path"
+          ],
+          "returnType": "dict",
+          "exported": true,
+          "lineCount": 51
+        },
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "src.data.eurosat_dataset",
+          "specifiers": [
+            "ALL_BANDS",
+            "ALL_INDICES",
+            "compute_indices",
+            "load_split",
+            "read_patch"
+          ]
+        }
+      ],
+      "exports": [
+        "compute_stats",
+        "main"
+      ],
+      "totalLines": 115,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/create_splits.py": {
+      "filePath": "src/data/create_splits.py",
+      "contentHash": "c59133f66f8ba2440605071f42348acb7ddfbb583441a8ae7f783265ff46e41c",
+      "functions": [
+        {
+          "name": "gather_samples",
+          "params": [
+            "data_root"
+          ],
+          "returnType": "tuple[list[str], list[int]]",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "make_splits",
+          "params": [
+            "relpaths",
+            "labels",
+            "seed"
+          ],
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "write_split",
+          "params": [
+            "path",
+            "samples"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "glob",
+          "specifiers": [
+            "glob"
+          ]
+        },
+        {
+          "source": "hashlib",
+          "specifiers": [
+            "hashlib"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "sklearn.model_selection",
+          "specifiers": [
+            "train_test_split"
+          ]
+        },
+        {
+          "source": "src.data.eurosat_dataset",
+          "specifiers": [
+            "CLASS_TO_IDX",
+            "CLASSES"
+          ]
+        }
+      ],
+      "exports": [
+        "gather_samples",
+        "make_splits",
+        "write_split",
+        "main"
+      ],
+      "totalLines": 108,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/eurosat_dataset.py": {
+      "filePath": "src/data/eurosat_dataset.py",
+      "contentHash": "59264f874083ccdefeaabed2fe713fc9fa29b23fccfc01cf671d9510ace56e18",
+      "functions": [
+        {
+          "name": "read_patch",
+          "params": [
+            "path"
+          ],
+          "returnType": "np.ndarray",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "compute_indices",
+          "params": [
+            "full_bands",
+            "indices",
+            "eps"
+          ],
+          "returnType": "np.ndarray",
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "load_split",
+          "params": [
+            "split_path"
+          ],
+          "returnType": "list[tuple[str, int]]",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "stats_to_channel_vectors",
+          "params": [
+            "channel_stats",
+            "bands",
+            "indices"
+          ],
+          "returnType": "tuple[list[float], list[float]]",
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "classes": [
+        {
+          "name": "EuroSATDataset",
+          "methods": [
+            "__init__",
+            "channel_names",
+            "n_channels",
+            "__len__",
+            "__getitem__",
+            "_as_chw",
+            "from_split_file"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 83
+        }
+      ],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Iterable",
+            "Sequence"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "tifffile",
+          "specifiers": [
+            "tifffile"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "Dataset"
+          ]
+        }
+      ],
+      "exports": [
+        "read_patch",
+        "compute_indices",
+        "load_split",
+        "EuroSATDataset",
+        "stats_to_channel_vectors"
+      ],
+      "totalLines": 215,
+      "hasStructuralAnalysis": true
+    },
+    "src/data/transforms.py": {
+      "filePath": "src/data/transforms.py",
+      "contentHash": "10a86762866f6fd8646689dddaf431b9df1133d7f8a43a70e2c075cc5ac827e1",
+      "functions": [
+        {
+          "name": "build_transform",
+          "params": [
+            "train",
+            "spatial"
+          ],
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [
+        {
+          "name": "GeometricAugment",
+          "methods": [
+            "__init__",
+            "__call__"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "RandomResizedCrop",
+          "methods": [
+            "__init__",
+            "__call__"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 44
+        },
+        {
+          "name": "Compose",
+          "methods": [
+            "__init__",
+            "__call__"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn.functional",
+          "specifiers": [
+            "F"
+          ]
+        }
+      ],
+      "exports": [
+        "GeometricAugment",
+        "RandomResizedCrop",
+        "Compose",
+        "build_transform"
+      ],
+      "totalLines": 117,
+      "hasStructuralAnalysis": true
+    },
+    "src/models/__init__.py": {
+      "filePath": "src/models/__init__.py",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "src/models/resnet.py": {
+      "filePath": "src/models/resnet.py",
+      "contentHash": "bb3a2221664b1ae15e386ceb22d7b0f44c5862c14c048c9c2be9cfd38cfac101",
+      "functions": [
+        {
+          "name": "_adapt_conv1",
+          "params": [
+            "old_conv1",
+            "in_channels",
+            "rgb_positions"
+          ],
+          "returnType": "nn.Conv2d",
+          "exported": true,
+          "lineCount": 32
+        },
+        {
+          "name": "build_resnet50",
+          "params": [
+            "in_channels",
+            "num_classes",
+            "pretrained",
+            "bands"
+          ],
+          "returnType": "nn.Module",
+          "exported": true,
+          "lineCount": 40
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "typing",
+          "specifiers": [
+            "Sequence"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torchvision",
+          "specifiers": [
+            "models"
+          ]
+        },
+        {
+          "source": "torchvision.models",
+          "specifiers": [
+            "ResNet50_Weights"
+          ]
+        }
+      ],
+      "exports": [
+        "_adapt_conv1",
+        "build_resnet50"
+      ],
+      "totalLines": 99,
+      "hasStructuralAnalysis": true
+    },
+    "src/training/__init__.py": {
+      "filePath": "src/training/__init__.py",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "src/training/evaluate.py": {
+      "filePath": "src/training/evaluate.py",
+      "contentHash": "3b96b2129d34af3d13b967e77247d7aea5f6cb2a057ae3c26863bc8b9c25b323",
+      "functions": [
+        {
+          "name": "evaluate",
+          "params": [
+            "model",
+            "loader",
+            "device",
+            "criterion"
+          ],
+          "returnType": "dict",
+          "exported": true,
+          "lineCount": 34
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "sklearn.metrics",
+          "specifiers": [
+            "accuracy_score",
+            "f1_score"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        }
+      ],
+      "exports": [
+        "evaluate"
+      ],
+      "totalLines": 46,
+      "hasStructuralAnalysis": true
+    },
+    "src/training/mixaug.py": {
+      "filePath": "src/training/mixaug.py",
+      "contentHash": "b38240b648a72c1c705a96138c54700e7979e054cf457786486150b38e749547",
+      "functions": [
+        {
+          "name": "mixup_batch",
+          "params": [
+            "x",
+            "y",
+            "alpha",
+            "p"
+          ],
+          "returnType": "tuple[torch.Tensor, torch.Tensor, torch.Tensor, float]",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "cutmix_batch",
+          "params": [
+            "x",
+            "y",
+            "alpha",
+            "p"
+          ],
+          "returnType": "tuple[torch.Tensor, torch.Tensor, torch.Tensor, float]",
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "_sample_beta",
+          "params": [
+            "a",
+            "b"
+          ],
+          "returnType": "float",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "apply_batch_aug",
+          "params": [
+            "name",
+            "x",
+            "y",
+            "alpha",
+            "p"
+          ],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        }
+      ],
+      "exports": [
+        "mixup_batch",
+        "cutmix_batch",
+        "_sample_beta",
+        "apply_batch_aug"
+      ],
+      "totalLines": 92,
+      "hasStructuralAnalysis": true
+    },
+    "src/training/train.py": {
+      "filePath": "src/training/train.py",
+      "contentHash": "5a42cd21d3cbe70039dda50222fa8ce63d57126967b0c792664717f76f6635c9",
+      "functions": [
+        {
+          "name": "train",
+          "params": [
+            "model",
+            "train_loader",
+            "val_loader",
+            "device",
+            "run",
+            "epochs",
+            "lr",
+            "weight_decay",
+            "label_smoothing",
+            "max_grad_norm",
+            "patience",
+            "use_amp",
+            "ckpt_path",
+            "batch_aug",
+            "batch_aug_alpha",
+            "batch_aug_p",
+            "optimizer_name",
+            "sgd_momentum",
+            "sgd_nesterov"
+          ],
+          "returnType": "dict",
+          "exported": true,
+          "lineCount": 125
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "copy",
+          "specifiers": [
+            "copy"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "src.training.evaluate",
+          "specifiers": [
+            "evaluate"
+          ]
+        },
+        {
+          "source": "src.training.mixaug",
+          "specifiers": [
+            "apply_batch_aug"
+          ]
+        },
+        {
+          "source": "src.utils",
+          "specifiers": [
+            "wandb_utils"
+          ]
+        }
+      ],
+      "exports": [
+        "train"
+      ],
+      "totalLines": 149,
+      "hasStructuralAnalysis": true
+    },
+    "src/utils/__init__.py": {
+      "filePath": "src/utils/__init__.py",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "src/utils/config.py": {
+      "filePath": "src/utils/config.py",
+      "contentHash": "7531f3e68d73c21d5e99d56d4010b3d194dd835994ea2e88b76f6aaded15a985",
+      "functions": [
+        {
+          "name": "load_config",
+          "params": [
+            "path"
+          ],
+          "returnType": "dict",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "resolve_bands",
+          "params": [
+            "spec"
+          ],
+          "returnType": "list[str]",
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "yaml",
+          "specifiers": [
+            "yaml"
+          ]
+        },
+        {
+          "source": "src.data.eurosat_dataset",
+          "specifiers": [
+            "ALL_BANDS",
+            "BANDS_10M",
+            "BANDS_20M",
+            "BANDS_ATMOSPHERIC",
+            "RGB_BANDS"
+          ]
+        }
+      ],
+      "exports": [
+        "load_config",
+        "resolve_bands"
+      ],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "src/utils/seed.py": {
+      "filePath": "src/utils/seed.py",
+      "contentHash": "4b4e800dba25469a4b16041e4975f52c5432db382698ac5ebacddaaa114179ef",
+      "functions": [
+        {
+          "name": "set_seed",
+          "params": [
+            "seed",
+            "deterministic"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "seed_worker",
+          "params": [
+            "worker_id"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "make_generator",
+          "params": [
+            "seed"
+          ],
+          "returnType": "torch.Generator",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        }
+      ],
+      "exports": [
+        "set_seed",
+        "seed_worker",
+        "make_generator"
+      ],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "src/utils/wandb_utils.py": {
+      "filePath": "src/utils/wandb_utils.py",
+      "contentHash": "5b111ca2105c28ca34e8d90c23637e1b0f694da7d364555a1c556847e921f4fc",
+      "functions": [
+        {
+          "name": "make_run_name",
+          "params": [
+            "tier",
+            "exp_id",
+            "config_desc",
+            "seed"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "make_notes",
+          "params": [
+            "question",
+            "hypothesis",
+            "baseline_ref",
+            "expected"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "init_run",
+          "params": [
+            "tier",
+            "exp_id",
+            "config_desc",
+            "seed",
+            "config",
+            "question",
+            "hypothesis",
+            "baseline_ref",
+            "expected",
+            "extra_tags",
+            "project",
+            "mode"
+          ],
+          "exported": true,
+          "lineCount": 39
+        },
+        {
+          "name": "log_epoch",
+          "params": [
+            "run",
+            "epoch",
+            "lr",
+            "train_loss",
+            "train_acc",
+            "val_loss",
+            "val_acc",
+            "val_macro_f1"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "log_test_results",
+          "params": [
+            "run",
+            "y_true",
+            "y_pred",
+            "class_names"
+          ],
+          "returnType": "dict",
+          "exported": true,
+          "lineCount": 32
+        },
+        {
+          "name": "log_checkpoint",
+          "params": [
+            "run",
+            "ckpt_path",
+            "name",
+            "metadata"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "re",
+          "specifiers": [
+            "re"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Sequence"
+          ]
+        },
+        {
+          "source": "wandb",
+          "specifiers": [
+            "wandb"
+          ]
+        }
+      ],
+      "exports": [
+        "make_run_name",
+        "make_notes",
+        "init_run",
+        "log_epoch",
+        "log_test_results",
+        "log_checkpoint"
+      ],
+      "totalLines": 168,
+      "hasStructuralAnalysis": true
+    },
+    "stats/.gitkeep": {
+      "filePath": "stats/.gitkeep",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "stats/channel_stats.json": {
+      "filePath": "stats/channel_stats.json",
+      "contentHash": "7a6eb7580d6b957d0b918a88db527b309c34d1c6206492108ac0b8d4a58b2b31",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 95,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

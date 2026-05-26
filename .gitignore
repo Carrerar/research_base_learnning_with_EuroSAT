@@ -32,6 +32,11 @@ dataset/*
 # --- Claude Code local memory ---
 CLAUDE.local.md
 
+# --- Understand Anything runtime ---
+.understand-anything/dashboard*.log
+.understand-anything/tmp/
+.understand-anything/intermediate/
+
 # --- OS / editor ---
 .DS_Store
 Thumbs.db
